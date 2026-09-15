@@ -1,0 +1,48 @@
+text_draws=14 text_vertices=720 text_textures=2
+ui_draws=45 ui_quads=41 ui_lines=4 ui_vertices=172 ui_scissor_binds=0 ui_texture_binds=37 ui_textures=11
+water_patches=0 water_draws=0 water_vertices=0 water_indices=0 water_geometry=0 water_textures=0 sky_draws=0 cloud_draws=0 world_textures=0
+frame=1 terrain=1 draws=0 textured_draws=0 textures=0 uploads=0 size=0x0 mips=0
+splat_draws=0 color_textures=0 alpha_textures=0 layer_materials=0
+object_draws=0 object_geometry=0 object_textures=0
+actors_visible=0 actor_uploads=0 actor_vertices=0 actor_bytes=0 actor_draws=0 actor_geometry=0 actor_textures=0 actor_index_uploads=0
+players_visible=0 special_actors_visible=0 npcs_visible=0 mobs_visible=0 skinned_vertices=0
+attachments_visible=0 weapon_draws=0 shield_draws=0 hair_draws=0 attachment_geometry=0 attachment_textures=0
+mounts_visible=0 mounted_actors=0 mount_draws=0 mount_uploads=0 mount_geometry=0 mount_textures=0
+trees_visible=0 branch_draws=0 frond_draws=0 leaf_draws=0 billboard_draws=0 tree_vertices=0 tree_indices=0 tree_geometry=0 tree_textures=0
+effect_instances=0 particle_systems=0 particles_alive=0 particles_visible=0 particle_draws=0 mesh_effect_draws=0 weapon_trace_draws=0 fly_trace_draws=0 snow_draws=0 effect_vertices=0 effect_upload_bytes=0 effect_buffer_bytes=0 effect_textures=0
+guild_draws=0 dungeon_draws=0 lens_flare_draws=0
+text_draws=14 text_vertices=732 text_textures=2
+ui_draws=45 ui_quads=41 ui_lines=4 ui_vertices=172 ui_scissor_binds=0 ui_texture_binds=37 ui_textures=11
+water_patches=0 water_draws=0 water_vertices=0 water_indices=0 water_geometry=0 water_textures=0 sky_draws=0 cloud_draws=0 world_textures=0
+frame=120 terrain=1 draws=0 textured_draws=0 textures=0 uploads=0 size=0x0 mips=0
+splat_draws=0 color_textures=0 alpha_textures=0 layer_materials=0
+object_draws=0 object_geometry=0 object_textures=0
+actors_visible=0 actor_uploads=0 actor_vertices=0 actor_bytes=0 actor_draws=0 actor_geometry=0 actor_textures=0 actor_index_uploads=0
+players_visible=0 special_actors_visible=0 npcs_visible=0 mobs_visible=0 skinned_vertices=0
+attachments_visible=0 weapon_draws=0 shield_draws=0 hair_draws=0 attachment_geometry=0 attachment_textures=0
+mounts_visible=0 mounted_actors=0 mount_draws=0 mount_uploads=0 mount_geometry=0 mount_textures=0
+trees_visible=0 branch_draws=0 frond_draws=0 leaf_draws=0 billboard_draws=0 tree_vertices=0 tree_indices=0 tree_geometry=0 tree_textures=0
+effect_instances=0 particle_systems=0 particles_alive=0 particles_visible=0 particle_draws=0 mesh_effect_draws=0 weapon_trace_draws=0 fly_trace_draws=0 snow_draws=0 effect_vertices=0 effect_upload_bytes=0 effect_buffer_bytes=0 effect_textures=0
+guild_draws=0 dungeon_draws=0 lens_flare_draws=0
+text_draws=14 text_vertices=732 text_textures=2
+ui_draws=45 ui_quads=41 ui_lines=4 ui_vertices=172 ui_scissor_binds=0 ui_texture_binds=37 ui_textures=11
+water_patches=0 water_draws=0 water_vertices=0 water_indices=0 water_geometry=0 water_textures=0 sky_draws=0 cloud_draws=0 world_textures=0
+frame=240 terrain=1 draws=0 textured_draws=0 textures=0 uploads=0 size=0x0 mips=0
+splat_draws=0 color_textures=0 alpha_textures=0 layer_materials=0
+object_draws=0 object_geometry=0 object_textures=0
+actors_visible=0 actor_uploads=0 actor_vertices=0 actor_bytes=0 actor_draws=0 actor_geometry=0 actor_textures=0 actor_index_uploads=0
+players_visible=0 special_actors_visible=0 npcs_visible=0 mobs_visible=0 skinned_vertices=0
+attachments_visible=0 weapon_draws=0 shield_draws=0 hair_draws=0 attachment_geometry=0 attachment_textures=0
+mounts_visible=0 mounted_actors=0 mount_draws=0 mount_uploads=0 mount_geometry=0 mount_textures=0
+trees_visible=0 branch_draws=0 frond_draws=0 leaf_draws=0 billboard_draws=0 tree_vertices=0 tree_indices=0 tree_geometry=0 tree_textures=0
+effect_instances=0 particle_systems=0 particles_alive=0 particles_visible=0 particle_draws=0 mesh_effect_draws=0 weapon_trace_draws=0 fly_trace_draws=0 snow_draws=0 effect_vertices=0 effect_upload_bytes=0 effect_buffer_bytes=0 effect_textures=0
+guild_draws=0 dungeon_draws=0 lens_flare_draws=0
+shutdown text_textures=0 text_buffers=0
+shutdown ui_textures=0 ui_buffers=0
+shutdown water_geometry=0 world_textures=0 world_buffers=0
+shutdown effect_textures=0 effect_buffers=0 effect_instances=0 particle_systems=0 particles=0
+shutdown tree_geometry=0 tree_textures=0
+shutdown actor_geometry=0 actor_textures=0
+shutdown attachment_geometry=0 attachment_textures=0
+shutdown mount_geometry=0 mount_textures=0
+shutdown object_geometry=0 object_textures=0

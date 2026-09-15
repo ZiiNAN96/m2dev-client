@@ -1,0 +1,833 @@
+state 27=0
+state 15=0
+state 25=7
+state 24=1
+state 19=5
+state 20=6
+state 171=1
+state 206=0
+state 7=1
+state 14=1
+state 23=4
+state 29=0
+state 141=0
+state 22=2
+state 137=1
+state 28=1
+state 35=0
+state 140=1
+stage 0:1=2
+stage 0:2=2
+stage 0:3=1
+stage 0:4=4
+stage 0:5=2
+stage 0:6=1
+stage 0:11=0
+stage 0:24=0
+stage 1:1=1
+stage 1:2=2
+stage 1:3=1
+stage 1:4=1
+stage 1:5=2
+stage 1:6=1
+stage 1:11=1
+stage 1:24=0
+sampler 0:1=1
+sampler 0:2=1
+sampler 0:6=3
+sampler 0:5=3
+sampler 0:7=2
+sampler 1:1=1
+sampler 1:2=1
+sampler 1:6=2
+sampler 1:5=2
+sampler 1:7=2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\obj-0010.gr2 position=39585.5,-59043.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_30.gr2 position=40779.3,-58704.3,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_34.gr2 position=40983.1,-58761.9,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_32.gr2 position=40575.9,-58646.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_36.gr2 position=39960.4,-58506.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_37.gr2 position=39753.3,-58454.3,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_38.gr2 position=39550.2,-58401.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=40598.6,-58466.7,17777
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-033-guesthouse-01.gr2 position=40550.5,-57471.6,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent01.gr2 position=38428.8,-55905.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-034-stonedoor.gr2 position=35861.5,-53315.2,17553
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-022-10m-bridge.gr2 position=35755.9,-50457.7,15850.4
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box02.gr2 position=39332,-57761.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=39170.9,-57698.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red02.gr2 position=39487,-57564.6,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box01.gr2 position=39297.5,-57559.6,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_blue01.gr2 position=39551.4,-57395.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red01.gr2 position=39449.4,-57366.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_blue02.gr2 position=39566.4,-57281.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=39547.9,-57212,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow01.gr2 position=39622.7,-57049.9,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=37758.1,-56927.6,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_pieceofstone01.gr2 position=38708.4,-56674.3,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red01.gr2 position=38776.5,-56528.3,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow01.gr2 position=38687.7,-56522.6,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_13.gr2 position=38146.8,-56527.1,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_24.gr2 position=38600,-56300,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_26.gr2 position=38300,-56200,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_01_1.gr2 position=43553.3,-47770.9,16994.1
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=38600,-55800,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=41361.1,-53357.3,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_27.gr2 position=43340.1,-56597.7,17777
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_pillar.gr2 position=43574.9,-56815.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stump.gr2 position=43526.5,-56505.9,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-035-woodgate.gr2 position=54243.5,-43080.2,16707.6
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-033-guesthouse-01.gr2 position=44056.9,-60215.4,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25-2.gr2 position=42752.6,-60268.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_05.gr2 position=42746.3,-60019.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=42936,-60168,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=47790.1,-57510.7,17811.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25_1.gr2 position=43048.4,-60355.4,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-001-house3.gr2 position=61533.4,-51983.5,18835.3
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_26.gr2 position=43181.1,-61159.8,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_24.gr2 position=43319.8,-61077.9,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=43511.1,-61149,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=43484,-60997.4,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_suspension bridge01.gr2 position=66736.5,-60398.5,15633.4
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=38100.9,-60716.7,17787
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=36868.6,-61102.1,17799.2
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-009-hotel.gr2 position=45845.9,-64074.8,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-034-stonedoor.gr2 position=48222,-63955.9,17757
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-022-10m-bridge.gr2 position=51163.2,-63928.4,16027.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=44623.1,-63480.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=41710.3,-63218.8,17780.1
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=44630,-64590,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-035-woodgate.gr2 position=59794.1,-71594.5,17714
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_carriage.gr2 position=44365.4,-65998.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=41782.8,-64895.6,17779.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_campfire.gr2 position=42355,-65227.8,17767.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_brazier.gr2 position=42600,-65700,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=42800,-65600,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=42800,-65800,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_07.gr2 position=42918.2,-65735.4,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_13.gr2 position=43054.6,-65749.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=44525.2,-68611.1,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=36868.6,-61102.1,17799.2
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-011-workhouse.gr2 position=42594.8,-67922.6,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\sign.gr2 position=46736.6,-71983.6,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\sign.gr2 position=47986.3,-73545.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\sign.gr2 position=42438.3,-69793.3,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-034-stonedoor.gr2 position=42071.5,-75156.4,17553
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=40504.8,-67084,17778.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-022-10m-bridge.gr2 position=42086.7,-78079.8,15822
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_36.gr2 position=39960.4,-58506.1,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_37.gr2 position=39753.3,-58454.3,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_38.gr2 position=39550.2,-58401.2,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\obj-0010.gr2 position=39585.5,-59043.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=38100.9,-60716.7,17787
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_09.gr2 position=38909.3,-69457.6,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-007-itemshop.gr2 position=38342.7,-70193.3,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence06.gr2 position=38654,-72951.5,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=38240.3,-72950.9,17770.9
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbox.gr2 position=39045.8,-73048,17765
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=38857.4,-73055.6,17765
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=37744.8,-73195.2,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=39120.9,-73310.1,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=39444.7,-73422.2,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=39279.2,-73577.9,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=39189.6,-73905.1,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=39354.6,-74076.3,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_29.gr2 position=39390.6,-74162.2,17765
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=39286.1,-74296,17770
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\hay_01.gr2 position=39340.2,-74297.1,17760
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\hay_01.gr2 position=39376.3,-74341.8,17795
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\hay_01.gr2 position=39377.5,-74395.9,17760
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\hay_01.gr2 position=39270.6,-74433.7,17760
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence06.gr2 position=39099.8,-74620.6,17770.1
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21.gr2 position=39204,-74795.1,17766.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence06.gr2 position=37590.7,-74794.2,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=38803.9,-74911.6,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=38572.3,-74972,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=37866.6,-74963.4,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=38221.6,-75060.7,17771.3
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=38882.4,-75293.1,17848.4
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=38959.5,-75330.4,17827.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_01_2.gr2 position=37499.2,-84241.5,16957.1
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=37712.6,-69619.2,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_10.gr2 position=37572.1,-69630,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=37439.5,-73612.6,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=37341.9,-73968.6,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=37329.3,-74210.2,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_carriage.gr2 position=34400,-73500,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=37387.8,-74440.2,17771
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-013-6tower.gr2 position=34909.1,-74794.7,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stonepillar_01.gr2 position=33900,-75800,17799.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=33174.6,-81566,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=33114.2,-82066.8,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=33118,-82441.4,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=33118.5,-82680.9,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=33111,-82927,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red01.gr2 position=33319.8,-83029.9,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=33168.4,-83158.4,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-004-house2.gr2 position=31955,-84067.4,18215
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-001-house3.gr2 position=33317.2,-84519.1,18245
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1-033-guesthouse-01.gr2 position=40550.5,-57471.6,17762
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_30.gr2 position=40779.3,-58704.3,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=40598.6,-58466.7,17777
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_32.gr2 position=40575.9,-58646.5,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stonepillar_01.gr2 position=33900,-73800,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=34100,-74300,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=31625.4,-73493.7,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=31092.2,-80656.5,18215
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red01.gr2 position=30500,-80600,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_red02.gr2 position=30600,-80700,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_13.gr2 position=30600,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow01.gr2 position=30500,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_10_1.gr2 position=30000,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow01.gr2 position=29800,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=29303,-80663.2,18215
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence06.gr2 position=28301.9,-80182.5,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_14.gr2 position=29500,-81000,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=29000,-81000,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=28019.1,-80482.2,18221.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_15.gr2 position=28500,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_11.gr2 position=28800,-81000,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21.gr2 position=28300,-80800,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_28.gr2 position=28600,-81200,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=27900,-80900,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_24.gr2 position=28200,-81300,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=27900,-81300,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=27900,-81700,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=27900,-82200,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=28016.1,-82368.1,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=27728.7,-82512.7,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-017.gr2 position=29442.4,-83878,18210
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_34.gr2 position=40983.1,-58761.9,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=30400,-68500,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=30400,-69400,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=29700,-69400,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stonepillar_02.gr2 position=32877.8,-64529.1,18003.7
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-door.gr2 position=31400,-64000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=31400,-65000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=31400,-65800,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=31400,-66500,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=31400,-67100,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=31000,-67100,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=30400,-67100,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=30400,-67700,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_brazier_01.gr2 position=28900,-67000,18319
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-landmark-01-bellhouse.gr2 position=28300,-67700,18304
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_brazier_01.gr2 position=27700,-67000,18319
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=29200,-69400,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=28500,-69400,18005.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=27500,-69400,18005.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=26500,-69400,18005.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-68000,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin.gr2 position=25600,-68800,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=25600,-69400,18010.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_30.gr2 position=30100,-83500,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stonepillar_02.gr2 position=32966.6,-63251.8,18002.4
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=31400,-62500,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=29346.9,-63634.1,18006
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=29348.2,-64261.6,18006
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_18.gr2 position=29000,-64600,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-010-bank.gr2 position=27945.2,-63970.6,18001
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-64000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-65000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-66000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-67000,18011
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_25-2.gr2 position=42752.6,-60268.5,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_05.gr2 position=42746.3,-60019.1,17767
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=31400,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=31400,-61600,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=30500,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=29500,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=28500,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=27500,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=26500,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-corner.gr2 position=25600,-61100,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-62000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-038-wall-lin2.gr2 position=25600,-63000,18011
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=15676.2,-63998.2,18775.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=29100,-58400,17788.2
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=28897.7,-58031.5,17764.9
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_blue02.gr2 position=28300,-58200,17787
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=28200,-58300,17793.8
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21_1.gr2 position=28100,-58100,17784
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=20684.3,-58509.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=20588.7,-59059.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=20615.8,-57973.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=20620.6,-57669.6,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=20626.7,-57307.9,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=20719.2,-56750.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=20275.4,-59239.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=20625.1,-56119.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_02.gr2 position=20271.5,-57598.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbox.gr2 position=20109.7,-58546.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_02.gr2 position=20277.3,-57167.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=19975.5,-59313.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbed.gr2 position=20003.8,-58284.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=20254,-56705.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbed.gr2 position=19884.8,-58735.1,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent01.gr2 position=19852.4,-58481.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=20097.4,-56812.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=20318.4,-55702.9,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=20010.1,-56873.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=19806.9,-58102.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-006-woodbarrel.gr2 position=20037.9,-56690.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbed.gr2 position=20064.4,-56466.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19983.7,-56795.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=19744.6,-58223,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19940.4,-56962.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19945.4,-56308.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box02.gr2 position=19942.1,-56185.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=19750.4,-57112.1,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=19830.1,-56589.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_blue02.gr2 position=19866.4,-56412.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent01.gr2 position=19812.5,-56488.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=19535.8,-57892.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box02.gr2 position=19851.1,-56144.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box02.gr2 position=19805.2,-56316.6,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_blue01.gr2 position=19762.8,-56461.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=19610.9,-57202,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=19583.4,-57142,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow01.gr2 position=19759,-56012.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=19704.3,-56174.5,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=19670.6,-56315.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19251.9,-58733,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box01.gr2 position=19205.7,-58815.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19212,-58647.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow02.gr2 position=19638.3,-56083.9,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=19129.2,-59223.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19193.2,-58548.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=19567.9,-56270.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19150.4,-58745.6,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_27.gr2 position=19104.6,-58802.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=19121.6,-58582.5,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19198.2,-56300.1,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-005-woodbarrel.gr2 position=19154.9,-56430.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=19405.1,-55331.5,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\obj-0006.gr2 position=19113.2,-56584.1,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=19079.1,-56354.5,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21.gr2 position=18661.3,-58803.2,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_28.gr2 position=18967.7,-56392.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-006-woodbarrel.gr2 position=18850.5,-56001.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_jar_yellow02.gr2 position=18798.9,-55896.9,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent02.gr2 position=18770.8,-55993.1,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=18902.4,-55276,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=18705.6,-56075.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=18446.1,-56058.8,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_42.gr2 position=18420.7,-56174.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=18604.5,-55352.6,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=18403.3,-55468.5,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_41.gr2 position=18237,-56128.6,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_carriage.gr2 position=17853.2,-56145.9,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=17646.9,-56590.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_10.gr2 position=17563.4,-56473.4,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=17479.4,-56712,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_07.gr2 position=17401,-56261.7,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_05.gr2 position=17365.5,-56309.3,19344.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_24.gr2 position=31400,-56800,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=31300,-57000,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=31384.7,-56614.8,17672
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=31300,-56400,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_drum.gr2 position=30941.5,-56925.7,17872
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=31300,-55500,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodchair.gr2 position=31300,-55100,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=31300,-55000,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21.gr2 position=31400,-54800,17772
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-033-guesthouse-02.gr2 position=30644.5,-55983.9,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone19.gr2 position=18915.6,-47705.9,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone18.gr2 position=18852.8,-46927.1,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone19.gr2 position=18474.3,-47351.1,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone19.gr2 position=18969.6,-46528.9,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone18.gr2 position=18662.1,-46370.4,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=35056.5,-55157.6,17582.2
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=41710.3,-63218.8,17780.1
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=36701.3,-55064.1,17568
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=29800,-84600,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=29000,-84600,18225
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=44445.4,-90553.9,18298
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=44058.2,-90712,18278
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1_018-stonelight-1.gr2 position=40504.8,-67084,17778.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_suspension bridge02.gr2 position=14573,-49037.1,19864.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone08.gr2 position=13618.5,-60091.4,19354.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone02.gr2 position=13531.4,-59923.2,19375.8
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone18.gr2 position=18981.4,-45918.2,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone01.gr2 position=13503.7,-60247.8,19349.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone03.gr2 position=13356.2,-60122.1,19366.9
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone11.gr2 position=13272.8,-60351.6,19356.8
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone14.gr2 position=18243.8,-46767.5,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone11.gr2 position=18341.2,-47021.6,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone14.gr2 position=18383.8,-45985.5,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=17826,-47723.7,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=17955.5,-47167.7,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone11.gr2 position=11746,-62183.5,19430.1
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone11.gr2 position=17972.8,-46407.6,18918.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=17450.6,-46256.2,19036.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=17145.8,-46058,19156.7
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\general_obj_stonepillar_02.gr2 position=32966.6,-63251.8,18002.4
+submitted: static rigid diffuse file=d:\ymir work\zone\c\building\c1-035-woodgate.gr2 position=52201.9,-91247.5,18605
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent01.gr2 position=46953,-93671.9,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_05.gr2 position=45085.7,-91449.4,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_05.gr2 position=45389.6,-91487.7,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_charcoal.gr2 position=44742,-92172.1,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\obj-0002.gr2 position=44447.6,-92307,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent01.gr2 position=43947.8,-93296.9,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=43853.3,-90835,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=43592,-91095.3,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=43438.1,-91348.1,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_02.gr2 position=44140.3,-91990.4,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_02.gr2 position=43901,-92485.5,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box01.gr2 position=44053.3,-92494.2,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=44245.9,-92655,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box02.gr2 position=44237.2,-92956.8,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=44226.6,-93222.9,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_23.gr2 position=44184.8,-93359.7,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=44356.5,-93272.3,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=44242.8,-93458.5,18283
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1-011-workhouse.gr2 position=42594.8,-67922.6,17762
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_flag.gr2 position=44905.9,-93455.1,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=44802.6,-93735.8,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=43306.1,-94189,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box03.gr2 position=46596.8,-93039.7,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\ob-b1-001-box01.gr2 position=46470,-93170.8,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_25.gr2 position=47332,-93003.7,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_37.gr2 position=45045.8,-93813.5,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=43528.7,-94239.4,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_33.gr2 position=46315,-93383.4,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_tent02.gr2 position=45552.7,-93987.8,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_40.gr2 position=45236,-93858.7,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=43690.8,-94408.4,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_21.gr2 position=44885.9,-94169.5,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_woodbed.gr2 position=46795,-93384.2,18288
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_carriage.gr2 position=46143.1,-94164.3,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=44012.9,-94569.7,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\b_general_obj_22.gr2 position=46900.7,-93575.6,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=44432.7,-94830.1,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence06.gr2 position=47801.2,-93415.8,18273
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=44965.4,-94876.3,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=45323.1,-94966.4,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=47798.2,-93825.7,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=47729.8,-94050.6,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence04.gr2 position=45561.3,-94966.9,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence05.gr2 position=45781.3,-95029.5,18278
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=47545.7,-94366.9,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence03.gr2 position=47286.6,-94620,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence01.gr2 position=46505.6,-95004,18283
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_fence02.gr2 position=46970.6,-94801.8,18283
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1-007-itemshop.gr2 position=38342.7,-70193.3,17762
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\b_general_obj_09.gr2 position=38909.3,-69457.6,17767
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\sign.gr2 position=42438.3,-69793.3,17767
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1-016-house9.gr2 position=44525.2,-68611.1,17762
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\sign.gr2 position=46736.6,-71983.6,17767
+submitted: static camera blocker file=d:\ymir work\zone\c\building\c1-034-stonedoor.gr2 position=42071.5,-75156.4,17553
+release live_objects=351
+release live_objects=350
+release live_objects=349
+release live_objects=348
+release live_objects=347
+release live_objects=346
+release live_objects=345
+release live_objects=344
+release live_objects=343
+release live_objects=342
+release live_objects=341
+release live_objects=340
+release live_objects=339
+release live_objects=338
+release live_objects=337
+release live_objects=336
+release live_objects=335
+release live_objects=334
+release live_objects=333
+release live_objects=332
+release live_objects=331
+release live_objects=330
+release live_objects=329
+release live_objects=328
+release live_objects=327
+release live_objects=326
+release live_objects=325
+release live_objects=324
+release live_objects=323
+release live_objects=322
+release live_objects=321
+release live_objects=320
+release live_objects=319
+release live_objects=318
+release live_objects=317
+release live_objects=316
+release live_objects=315
+release live_objects=314
+release live_objects=313
+release live_objects=312
+release live_objects=311
+release live_objects=310
+release live_objects=309
+release live_objects=308
+release live_objects=307
+release live_objects=306
+release live_objects=305
+release live_objects=304
+release live_objects=303
+release live_objects=302
+release live_objects=301
+release live_objects=300
+release live_objects=299
+release live_objects=298
+release live_objects=297
+release live_objects=296
+release live_objects=295
+release live_objects=294
+release live_objects=293
+release live_objects=292
+release live_objects=291
+release live_objects=290
+release live_objects=289
+release live_objects=288
+release live_objects=287
+release live_objects=286
+release live_objects=285
+release live_objects=284
+release live_objects=283
+release live_objects=282
+release live_objects=281
+release live_objects=280
+release live_objects=279
+release live_objects=278
+release live_objects=277
+release live_objects=276
+release live_objects=275
+release live_objects=274
+release live_objects=273
+release live_objects=272
+release live_objects=271
+release live_objects=270
+release live_objects=269
+release live_objects=268
+release live_objects=267
+release live_objects=266
+release live_objects=265
+release live_objects=264
+release live_objects=263
+release live_objects=262
+release live_objects=261
+release live_objects=260
+release live_objects=259
+release live_objects=258
+release live_objects=257
+release live_objects=256
+release live_objects=255
+release live_objects=254
+release live_objects=253
+release live_objects=252
+release live_objects=251
+release live_objects=250
+release live_objects=249
+release live_objects=248
+release live_objects=247
+release live_objects=246
+release live_objects=245
+release live_objects=244
+release live_objects=243
+release live_objects=242
+release live_objects=241
+release live_objects=240
+release live_objects=239
+release live_objects=238
+release live_objects=237
+release live_objects=236
+release live_objects=235
+release live_objects=234
+release live_objects=233
+release live_objects=232
+release live_objects=231
+release live_objects=230
+release live_objects=229
+release live_objects=228
+release live_objects=227
+release live_objects=226
+release live_objects=225
+release live_objects=224
+release live_objects=223
+release live_objects=222
+release live_objects=221
+release live_objects=220
+release live_objects=219
+release live_objects=218
+release live_objects=217
+release live_objects=216
+release live_objects=215
+release live_objects=214
+release live_objects=213
+release live_objects=212
+release live_objects=211
+release live_objects=210
+release live_objects=209
+release live_objects=208
+release live_objects=207
+release live_objects=206
+release live_objects=205
+release live_objects=204
+release live_objects=203
+release live_objects=202
+release live_objects=201
+release live_objects=200
+release live_objects=199
+release live_objects=198
+release live_objects=197
+release live_objects=196
+release live_objects=195
+release live_objects=194
+release live_objects=193
+release live_objects=192
+release live_objects=191
+release live_objects=190
+release live_objects=189
+release live_objects=188
+release live_objects=187
+release live_objects=186
+release live_objects=185
+release live_objects=184
+release live_objects=183
+release live_objects=182
+release live_objects=181
+release live_objects=180
+release live_objects=179
+release live_objects=178
+release live_objects=177
+release live_objects=176
+release live_objects=175
+release live_objects=174
+release live_objects=173
+release live_objects=172
+release live_objects=171
+release live_objects=170
+release live_objects=169
+release live_objects=168
+release live_objects=167
+release live_objects=166
+release live_objects=165
+release live_objects=164
+release live_objects=163
+release live_objects=162
+release live_objects=161
+release live_objects=160
+release live_objects=159
+release live_objects=158
+release live_objects=157
+release live_objects=156
+release live_objects=155
+release live_objects=154
+release live_objects=153
+release live_objects=152
+release live_objects=151
+release live_objects=150
+release live_objects=149
+release live_objects=148
+release live_objects=147
+release live_objects=146
+release live_objects=145
+release live_objects=144
+release live_objects=143
+release live_objects=142
+release live_objects=141
+release live_objects=140
+release live_objects=139
+release live_objects=138
+release live_objects=137
+release live_objects=136
+release live_objects=135
+release live_objects=134
+release live_objects=133
+release live_objects=132
+release live_objects=131
+release live_objects=130
+release live_objects=129
+release live_objects=128
+release live_objects=127
+release live_objects=126
+release live_objects=125
+release live_objects=124
+release live_objects=123
+release live_objects=122
+release live_objects=121
+release live_objects=120
+release live_objects=119
+release live_objects=118
+release live_objects=117
+release live_objects=116
+release live_objects=115
+release live_objects=114
+release live_objects=113
+release live_objects=112
+release live_objects=111
+release live_objects=110
+release live_objects=109
+release live_objects=108
+release live_objects=107
+release live_objects=106
+release live_objects=105
+release live_objects=104
+release live_objects=103
+release live_objects=102
+release live_objects=101
+release live_objects=100
+release live_objects=99
+release live_objects=98
+release live_objects=97
+release live_objects=96
+release live_objects=95
+release live_objects=94
+release live_objects=93
+release live_objects=92
+release live_objects=91
+release live_objects=90
+release live_objects=89
+release live_objects=88
+release live_objects=87
+release live_objects=86
+release live_objects=85
+release live_objects=84
+release live_objects=83
+release live_objects=82
+release live_objects=81
+release live_objects=80
+release live_objects=79
+release live_objects=78
+release live_objects=77
+release live_objects=76
+release live_objects=75
+release live_objects=74
+release live_objects=73
+release live_objects=72
+release live_objects=71
+release live_objects=70
+release live_objects=69
+release live_objects=68
+release live_objects=67
+release live_objects=66
+release live_objects=65
+release live_objects=64
+release live_objects=63
+release live_objects=62
+release live_objects=61
+release live_objects=60
+release live_objects=59
+release live_objects=58
+release live_objects=57
+release live_objects=56
+release live_objects=55
+release live_objects=54
+release live_objects=53
+release live_objects=52
+release live_objects=51
+release live_objects=50
+release live_objects=49
+release live_objects=48
+release live_objects=47
+release live_objects=46
+release live_objects=45
+release live_objects=44
+release live_objects=43
+release live_objects=42
+release live_objects=41
+release live_objects=40
+release live_objects=39
+release live_objects=38
+release live_objects=37
+release live_objects=36
+release live_objects=35
+release live_objects=34
+release live_objects=33
+release live_objects=32
+release live_objects=31
+release live_objects=30
+release live_objects=29
+release live_objects=28
+release live_objects=27
+release live_objects=26
+release live_objects=25
+release live_objects=24
+release live_objects=23
+release live_objects=22
+release live_objects=21
+release live_objects=20
+release live_objects=19
+release live_objects=18
+release live_objects=17
+release live_objects=16
+release live_objects=15
+release live_objects=14
+release live_objects=13
+release live_objects=12
+release live_objects=11
+release live_objects=10
+release live_objects=9
+release live_objects=8
+release live_objects=7
+release live_objects=6
+release live_objects=5
+release live_objects=4
+release live_objects=3
+release live_objects=2
+release live_objects=1
+release live_objects=0
+submitted: static rigid diffuse file=d:\ymir work\zone\a\building\a1-middledam-01.gr2 position=64000,-143700,16412.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone12.gr2 position=62167.4,-133048,16858.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone18.gr2 position=66151.6,-129608,17040.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone10.gr2 position=51637.6,-124232,16666.3
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone03.gr2 position=55111.8,-120863,16633.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone13.gr2 position=50289.8,-123387,16630.7
+submitted: static camera blocker file=d:\ymir work\zone\a\building\a1-middledam-01.gr2 position=64000,-143700,16412.5
+submitted: static camera blocker file=d:\ymir work\zone\a\building\a1-middledam-03.gr2 position=64800,-144200,16412.5
+submitted: static camera blocker file=d:\ymir work\zone\a\building\a1-middledam-03.gr2 position=63100,-143200,16412.5
+submitted: static rigid diffuse file=d:\ymir work\zone\a\building\a1-middledam-03.gr2 position=64800,-144200,16412.5
+submitted: static rigid diffuse file=d:\ymir work\zone\a\building\a1-middledam-03.gr2 position=63100,-143200,16412.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone12.gr2 position=69227.7,-137604,16358.6
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone07.gr2 position=78841.9,-141191,16521
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone02.gr2 position=79422.2,-140330,16501.5
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone07.gr2 position=85916.1,-140613,16842.9
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone10.gr2 position=89463.4,-129395,16985.8
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone14.gr2 position=90262.3,-130538,17066.7
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone04.gr2 position=86461.7,-125266,17158
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone03.gr2 position=78262.4,-127386,16952.6
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone19.gr2 position=73725.1,-126615,16648.3
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone14.gr2 position=74095.3,-125753,16722
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone06.gr2 position=72767,-126956,16677.1
+submitted: static camera blocker file=d:\ymir work\zone\b\obj\general_obj_stone12.gr2 position=69227.7,-137604,16358.6
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_suspension bridge01.gr2 position=86401.3,-111294,16603.2
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone10.gr2 position=98413.9,-136577,16925.3
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_suspension bridge01.gr2 position=95900.8,-121581,16633
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone10.gr2 position=94290.2,-142264,16891
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone11.gr2 position=94380.6,-142622,16994.7
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone09.gr2 position=93877.5,-143019,16921.7
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone03.gr2 position=68171.3,-135914,16574.8
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone03.gr2 position=50448.1,-125244,16618.6
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone08.gr2 position=101066,-127896,16794.6
+submitted: static rigid diffuse file=d:\ymir work\zone\b\obj\general_obj_stone10.gr2 position=103160,-129252,16811.9
+release live_objects=28
+release live_objects=27
+release live_objects=26
+release live_objects=25
+release live_objects=24
+release live_objects=23
+release live_objects=22
+release live_objects=21
+release live_objects=20
+release live_objects=19
+release live_objects=18
+release live_objects=17
+release live_objects=16
+release live_objects=15
+release live_objects=14
+release live_objects=13
+release live_objects=12
+release live_objects=11
+release live_objects=10
+release live_objects=9
+release live_objects=8
+release live_objects=7
+release live_objects=6
+release live_objects=5
+release live_objects=4
+release live_objects=3
+release live_objects=2
+release live_objects=1
+release live_objects=0

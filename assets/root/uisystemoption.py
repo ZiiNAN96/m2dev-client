@@ -42,8 +42,13 @@ class OptionDialog(ui.ScriptWindow):
 		self.fogModeButtonList = []
 		self.tilingModeButtonList = []
 		self.ctrlShadowQuality = 0
+		self.graphicsDialog = None
+		self.graphicsButton = None
 		
 	def Destroy(self):
+		if self.graphicsDialog:
+			self.graphicsDialog.Destroy()
+			self.graphicsDialog = None
 		self.ClearDictionary()
 
 		self.__Initialize()
@@ -81,6 +86,17 @@ class OptionDialog(ui.ScriptWindow):
 	def __Load(self):
 		self.__Load_LoadScript("uiscript/systemoptiondialog.py")
 		self.__Load_BindObject()
+
+		self.graphicsButton = ui.Button()
+		self.graphicsButton.SetParent(self)
+		self.graphicsButton.SetPosition(110, 220)
+		self.graphicsButton.SetUpVisual("d:/ymir work/ui/public/Large_Button_01.sub")
+		self.graphicsButton.SetOverVisual("d:/ymir work/ui/public/Large_Button_02.sub")
+		self.graphicsButton.SetDownVisual("d:/ymir work/ui/public/Large_Button_03.sub")
+		self.graphicsButton.SetText("Grafikeinstellungen")
+		self.graphicsButton.SetToolTipText("Vegetation, Sichtweite und Nebel einstellen")
+		self.graphicsButton.SAFE_SetEvent(self.OpenGraphics)
+		self.graphicsButton.Show()
 
 		self.SetCenterPosition()
 		
@@ -126,6 +142,16 @@ class OptionDialog(ui.ScriptWindow):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_CPU_TILING_2)
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_CPU_TILING_3)
 		self.__SetTilingMode(0)
+
+	def OpenGraphics(self):
+		if not self.graphicsDialog:
+			import uigraphicssettings
+			self.graphicsDialog = uigraphicssettings.GraphicsDialog()
+			self.graphicsDialog.closeEvent = ui.__mem_func__(self.RefreshGraphics)
+		self.graphicsDialog.Open()
+
+	def RefreshGraphics(self):
+		self.__ClickRadioButton(self.fogModeButtonList, systemSetting.GetFogLevel())
 
 	def __OnClickTilingModeGPUButton(self):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_GPU_TILING_1)
@@ -175,6 +201,8 @@ class OptionDialog(ui.ScriptWindow):
 		# MR-14: Fog update by Alaric
 		# constInfo.SET_FOG_LEVEL_INDEX(index)
 		systemSetting.SetFogLevel(index)
+		if self.graphicsDialog and self.graphicsDialog.IsShow():
+			self.graphicsDialog.Refresh()
 		# MR-14: -- END OF -- Fog update by Alaric
 
 		self.__ClickRadioButton(self.fogModeButtonList, index)
@@ -242,6 +270,10 @@ class OptionDialog(ui.ScriptWindow):
 		ui.ScriptWindow.Show(self)
 
 	def Close(self):
+		if self.graphicsDialog and self.graphicsDialog.IsShow():
+			self.graphicsDialog.Close()
+			if self.graphicsDialog.IsShow():
+				return
 		self.__SetCurTilingMode()
 		self.Hide()
 

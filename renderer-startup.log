@@ -1,0 +1,5 @@
+Skinning=gpu
+SkinningSelection=default
+Renderer: Diligent D3D11
+Selection=default API=d3d11
+ExitCode=0
