@@ -40,6 +40,7 @@ class OptionDialog(ui.ScriptWindow):
 		self.tilingApplyButton = 0
 		self.cameraModeButtonList = []
 		self.fogModeButtonList = []
+		self.fogLabel = None
 		self.tilingModeButtonList = []
 		self.ctrlShadowQuality = 0
 		self.graphicsDialog = None
@@ -75,6 +76,7 @@ class OptionDialog(ui.ScriptWindow):
 			self.fogModeButtonList.append(GetObject("fog_level0"))
 			self.fogModeButtonList.append(GetObject("fog_level1"))
 			self.fogModeButtonList.append(GetObject("fog_level2"))
+			self.fogLabel = GetObject("fog_mode")
 			self.tilingModeButtonList.append(GetObject("tiling_cpu"))
 			self.tilingModeButtonList.append(GetObject("tiling_gpu"))
 			self.tilingApplyButton=GetObject("tiling_apply")
@@ -94,7 +96,7 @@ class OptionDialog(ui.ScriptWindow):
 		self.graphicsButton.SetOverVisual("d:/ymir work/ui/public/Large_Button_02.sub")
 		self.graphicsButton.SetDownVisual("d:/ymir work/ui/public/Large_Button_03.sub")
 		self.graphicsButton.SetText("Grafikeinstellungen")
-		self.graphicsButton.SetToolTipText("Vegetation, Sichtweite und Nebel einstellen")
+		self.graphicsButton.SetToolTipText("Licht, Vegetation und Sichtweite einstellen")
 		self.graphicsButton.SAFE_SetEvent(self.OpenGraphics)
 		self.graphicsButton.Show()
 
@@ -148,10 +150,17 @@ class OptionDialog(ui.ScriptWindow):
 			import uigraphicssettings
 			self.graphicsDialog = uigraphicssettings.GraphicsDialog()
 			self.graphicsDialog.closeEvent = ui.__mem_func__(self.RefreshGraphics)
+			self.graphicsDialog.changeEvent = ui.__mem_func__(self.RefreshGraphics)
 		self.graphicsDialog.Open()
 
 	def RefreshGraphics(self):
 		self.__ClickRadioButton(self.fogModeButtonList, systemSetting.GetFogLevel())
+		classic = systemSetting.GetGraphicsSettings()["style"] == 0
+		for control in self.fogModeButtonList + [self.fogLabel]:
+			if classic:
+				control.Show()
+			else:
+				control.Hide()
 
 	def __OnClickTilingModeGPUButton(self):
 		self.__NotifyChatLine(localeInfo.SYSTEM_OPTION_GPU_TILING_1)
@@ -267,6 +276,7 @@ class OptionDialog(ui.ScriptWindow):
 		return True
 	
 	def Show(self):
+		self.RefreshGraphics()
 		ui.ScriptWindow.Show(self)
 
 	def Close(self):

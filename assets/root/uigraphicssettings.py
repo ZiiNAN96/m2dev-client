@@ -38,7 +38,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         ui.BoardWithTitleBar.__init__(self)
         self.AddFlag("movable")
         self.AddFlag("float")
-        self.SetSize(360, 552)
+        self.SetSize(360, 516)
         self.SetTitleName("Grafikeinstellungen")
         self.SetCloseEvent(ui.__mem_func__(self.Close))
         self.controls = []
@@ -46,6 +46,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.dirty = False
         self.refreshing = False
         self.closeEvent = None
+        self.changeEvent = None
         self.preset = self.MakeCombo("Grafikqualit\xe4t", 45, PRESETS, self.OnPreset)
         self.Text("Qualit\xe4t, Schatten, AO und Sichtweite.", 20, 73)
         self.style = self.MakeCombo("Grafik und Licht", 96, STYLES, self.OnStyle)
@@ -64,9 +65,8 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.ao = self.MakeCombo("Umgebungsverdeckung", 332, AO, self.OnAO)
         self.bloom = self.MakeCombo("Bloom", 368, BLOOM, self.OnBloom)
         self.sky = self.MakeCombo("Himmelqualit\xe4t", 404, ATMOSPHERE, self.OnSky)
-        self.fogQuality = self.MakeCombo("Nebelqualit\xe4t", 440, ATMOSPHERE, self.OnFogQuality)
-        self.Text("Licht, Schatten und Atmosph\xe4re: Modus Modern.", 20, 481)
-        self.Text("\xc4nderungen werden sofort angewendet.", 20, 518)
+        self.Text("Licht, Schatten und Atmosph\xe4re: Modus Modern.", 20, 445)
+        self.Text("\xc4nderungen werden sofort angewendet.", 20, 482)
         self.Refresh()
         self.SetCenterPosition()
 
@@ -82,8 +82,9 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         return label
 
     def MakeCombo(self, label, y, choices, event):
-        self.Text(label, 20, y + 4)
+        caption = self.Text(label, 20, y + 4)
         combo = GraphicsComboBox(self.CloseOtherCombos)
+        combo.label = caption
         combo.SetParent(self)
         combo.SetPosition(165, y)
         combo.SetSize(175, 22)
@@ -112,12 +113,20 @@ class GraphicsDialog(ui.BoardWithTitleBar):
             self.ao.SetCurrentItem(AO[values["ambientOcclusion"]])
             self.bloom.SetCurrentItem(BLOOM[values["bloom"]])
             self.sky.SetCurrentItem(ATMOSPHERE[values["modernSky"]])
-            self.fogQuality.SetCurrentItem(ATMOSPHERE[values["highQualityFog"]])
+            if values["style"] == 0:
+                self.fog.Show()
+                self.fog.label.Show()
+            else:
+                self.fog.CloseListBox()
+                self.fog.Hide()
+                self.fog.label.Hide()
             if updateDistance:
                 self.distance.SetSliderPos((values["viewDistance"] - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE))
             self.distanceText.SetText("Sichtweite: %d%% (passt sich der Last an)" % (values["viewDistance"] * 100.0 / 25600.0))
         finally:
             self.refreshing = False
+        if self.changeEvent:
+            self.changeEvent()
 
     def OnPreset(self, index):
         if systemSetting.ApplyGraphicsPreset(index):
@@ -146,9 +155,6 @@ class GraphicsDialog(ui.BoardWithTitleBar):
 
     def OnSky(self, index):
         self.Apply("modernSky", index)
-
-    def OnFogQuality(self, index):
-        self.Apply("highQualityFog", index)
 
     def OnDistance(self):
         if self.refreshing:
@@ -183,12 +189,13 @@ class GraphicsDialog(ui.BoardWithTitleBar):
 
     def Destroy(self):
         self.closeEvent = None
+        self.changeEvent = None
         for combo in self.combos:
             combo.CloseListBox()
             combo.Destroy()
         self.combos = []
         self.controls = []
         self.preset = self.style = self.vegetation = self.fog = None
-        self.shadows = self.ao = self.bloom = self.sky = self.fogQuality = None
+        self.shadows = self.ao = self.bloom = self.sky = None
         self.distance = self.distanceText = None
         self.Hide()
