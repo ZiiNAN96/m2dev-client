@@ -12,6 +12,7 @@ SHADOW_VALUES = (0, 1, 3, 4, 5)
 AO = ("Aus", "Niedrig", "Hoch")
 BLOOM = ("Aus", "Ein")
 ATMOSPHERE = ("Niedrig", "Hoch")
+WATER = ("Niedrig", "Mittel", "Hoch", "Ultra")
 MIN_DISTANCE = 6400.0
 MAX_DISTANCE = 38400.0
 
@@ -38,7 +39,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         ui.BoardWithTitleBar.__init__(self)
         self.AddFlag("movable")
         self.AddFlag("float")
-        self.SetSize(360, 516)
+        self.SetSize(360, 552)
         self.SetTitleName("Grafikeinstellungen")
         self.SetCloseEvent(ui.__mem_func__(self.Close))
         self.controls = []
@@ -65,8 +66,9 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.ao = self.MakeCombo("Umgebungsverdeckung", 332, AO, self.OnAO)
         self.bloom = self.MakeCombo("Bloom", 368, BLOOM, self.OnBloom)
         self.sky = self.MakeCombo("Himmelqualit\xe4t", 404, ATMOSPHERE, self.OnSky)
-        self.Text("Licht, Schatten und Atmosph\xe4re: Modus Modern.", 20, 445)
-        self.Text("\xc4nderungen werden sofort angewendet.", 20, 482)
+        self.water = self.MakeCombo("Wasserqualit\xe4t", 440, WATER, self.OnWater)
+        self.Text("Licht, Schatten und Wasser: Modus Modern.", 20, 481)
+        self.Text("\xc4nderungen werden sofort angewendet.", 20, 518)
         self.Refresh()
         self.SetCenterPosition()
 
@@ -113,6 +115,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
             self.ao.SetCurrentItem(AO[values["ambientOcclusion"]])
             self.bloom.SetCurrentItem(BLOOM[values["bloom"]])
             self.sky.SetCurrentItem(ATMOSPHERE[values["modernSky"]])
+            self.water.SetCurrentItem(WATER[values["water"]])
             if values["style"] == 0:
                 self.fog.Show()
                 self.fog.label.Show()
@@ -156,6 +159,9 @@ class GraphicsDialog(ui.BoardWithTitleBar):
     def OnSky(self, index):
         self.Apply("modernSky", index)
 
+    def OnWater(self, index):
+        self.Apply("water", index)
+
     def OnDistance(self):
         if self.refreshing:
             return
@@ -196,6 +202,6 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.combos = []
         self.controls = []
         self.preset = self.style = self.vegetation = self.fog = None
-        self.shadows = self.ao = self.bloom = self.sky = None
+        self.shadows = self.ao = self.bloom = self.sky = self.water = None
         self.distance = self.distanceText = None
         self.Hide()
