@@ -1,3 +1,5 @@
+> Aktueller Textur-/Release-Stand: [Alle Bodentexturen wieder original; flächiges 3D-Gras abgeschaltet](terrain-original-restoration.md). Die unten genannten EXE-Hashes und Gras-Erzeugung beschreiben den früheren H2-Stand; dessen übrige Abnahmegrenzen bleiben davon unberührt.
+
 # H2-X: Übernahme in den normalen Spielclient
 
 ## Ergänzung: H2-X-FINAL-Audit vom 16.09.2026

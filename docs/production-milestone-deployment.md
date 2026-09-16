@@ -1,3 +1,5 @@
+> Aktueller Textur-/Release-Stand: [Alle Bodentexturen wieder original; flächiges 3D-Gras abgeschaltet](terrain-original-restoration.md). Die unten genannten EXE-Hashes und Gras-Erzeugung beschreiben den früheren H2-Stand; dessen übrige Abnahmegrenzen bleiben davon unberührt.
+
 # H2-X-FINAL: Production-Milestone-Audit
 
 Stand: 16.09.2026. **Dateideployment und zwei Originalläufe geprüft; Nutzer-Sichtabnahme bestätigt. Finale H2-/Production-Abnahme noch NO-GO, weil der geforderte Mapwechsel in den Originallogs fehlt und die Abweichung zur pauschalen Nutzerbestätigung noch zu klären ist.** Testclient-Nachweise ersetzen diesen Punkt nicht. Kein Commit und kein Push, solange das vollständige FINAL GO fehlt.

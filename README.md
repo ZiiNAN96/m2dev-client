@@ -4,7 +4,9 @@ This repository contains all client-side data, including locale files, configura
 
 **For installation and configuration, see [instructions](#installationconfiguration) below.**
 
-Lokaler Stand: [H2-X Vegetation und Gras beim Kartenladen – Übernahme vom 16.09.2026](docs/h2-vegetation-deployment.md).
+Lokaler Stand: [Alle Bodentexturen wieder original; 3D-Gras im Release abgeschaltet – 16.09.2026](docs/terrain-original-restoration.md).
+
+Vorheriger Stand: [H2-X Vegetation und Gras beim Kartenladen – Übernahme vom 16.09.2026](docs/h2-vegetation-deployment.md).
 
 ## 📋 Changelog
 

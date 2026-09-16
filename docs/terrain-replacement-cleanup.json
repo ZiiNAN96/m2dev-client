@@ -1,0 +1,19 @@
+{
+  "created": "2026-09-16T20:50:25.372984+02:00",
+  "allowedRoots": [
+    "C:\\Users\\ZiiNAN\\Documents\\GitHub\\m2dev-client-src\\build-content-tx-p0",
+    "C:\\Users\\ZiiNAN\\Documents\\GitHub\\m2dev-client\\terrain-content-tx-v9_BAK"
+  ],
+  "fileCount": 4597,
+  "uniqueFiles": 127,
+  "logicalBytes": 102916685514,
+  "reclaimableUniqueBytes": 2923911954,
+  "protectedFiles": 12641,
+  "deletedAt": "2026-09-16T20:50:50.090887+02:00",
+  "deletedFiles": 4597,
+  "remainingReplacementFiles": 0,
+  "protectedFilesUnchanged": true,
+  "originalsActive": true,
+  "fullMap3DGrass": false,
+  "preserved": "Original textures/packs/configs/programs, vegetation, test corpus, screenshots, catalog previews, reports and material metadata"
+}
