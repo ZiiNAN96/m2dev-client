@@ -1363,7 +1363,11 @@ def LoadGameData(name):
 	if load:
 		loadGameDataDict[name]=0
 		try:
-			load()
+			# Synchronous bounded preparation; older clients keep their serial API.
+			if hasattr(chrmgr, "LoadMotionDataBatch"):
+				chrmgr.LoadMotionDataBatch(load)
+			else:
+				load()
 		except:
 			print(name)
 			import exception
