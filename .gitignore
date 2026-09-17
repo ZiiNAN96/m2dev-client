@@ -4,6 +4,10 @@ packetdump.txt
 pdlog.txt
 ErrorLog.txt
 
+# Generated runtime diagnostics, archived outside the client before cleanup.
+/*.log
+/skinning-benchmark.csv
+
 *.eix
 *.epk
 *.pck

@@ -1,4 +1,0 @@
-SourceTextures=0 SourceBuffers=0
-SkinMeshes=0 BoneRemaps=0 BonePalettes=0 PaletteUpdates=0 SkinPreparationFailures=0
-AllCPUDeformationCalls=0 AllCPUDeformationVertices=0 GPUFallbacks=0
-PrototypeGeometry=0 PrototypePalettes=0 GPUFrames=0 BoneBufferWrittenBytes=0 PrepareUs=0 CPUReferenceFrames=0 CPUSkinUs=0 CPUVertexBytes=0 StaticSkinMeshes=0

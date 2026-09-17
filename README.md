@@ -4,7 +4,9 @@ This repository contains all client-side data, including locale files, configura
 
 **For installation and configuration, see [instructions](#installationconfiguration) below.**
 
-Lokaler Stand: [Alle Bodentexturen wieder original; 3D-Gras im Release abgeschaltet – 16.09.2026](docs/terrain-original-restoration.md).
+Lokaler Stand: [Stabile Bäume ohne Detailwechsel; Originalclient aktualisiert und bereinigt – 17.09.2026](docs/stable-trees-deployment.md).
+
+Bodentexturen: [Originaltexturen wiederhergestellt; flächiges 3D-Gras abgeschaltet – 16.09.2026](docs/terrain-original-restoration.md).
 
 Vorheriger Stand: [H2-X Vegetation und Gras beim Kartenladen – Übernahme vom 16.09.2026](docs/h2-vegetation-deployment.md).
 
