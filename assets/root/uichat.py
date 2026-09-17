@@ -796,13 +796,15 @@ class ChatWindow(ui.Window):
 			if systemSetting.IsViewChat():
 				chat.Update(self.chatID)
 
-	def OnRender(self):
+		# Animate at the game/UI tick rate, independent of render FPS.
 		if chat.GetVisibleLineCount(self.chatID) != self.visibleLineCount:
 			self.visibleLineCount = chat.GetVisibleLineCount(self.chatID)
 			self.Refresh()
 
 		if self.curHeightBar != self.heightBar:
 			self.curHeightBar += (self.heightBar - self.curHeightBar) // 10
+
+	def OnRender(self):
 
 		if self.boardState == chat.BOARD_STATE_EDIT:
 			grp.SetColor(self.BOARD_MIDDLE_COLOR)

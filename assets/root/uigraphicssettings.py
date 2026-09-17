@@ -13,6 +13,8 @@ AO = ("Aus", "Niedrig", "Hoch")
 BLOOM = ("Aus", "Ein")
 ATMOSPHERE = ("Niedrig", "Hoch")
 WATER = ("Niedrig", "Mittel", "Hoch", "Ultra")
+FRAME_RATE_LIMITS = ("60", "120", "Unbegrenzt")
+VSYNC = ("Aus", "Ein")
 MIN_DISTANCE = 6400.0
 MAX_DISTANCE = 38400.0
 
@@ -39,7 +41,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         ui.BoardWithTitleBar.__init__(self)
         self.AddFlag("movable")
         self.AddFlag("float")
-        self.SetSize(360, 552)
+        self.SetSize(360, 592)
         self.SetTitleName("Grafikeinstellungen")
         self.SetCloseEvent(ui.__mem_func__(self.Close))
         self.controls = []
@@ -50,25 +52,27 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.changeEvent = None
         self.preset = self.MakeCombo("Grafikqualit\xe4t", 45, PRESETS, self.OnPreset)
         self.Text("Qualit\xe4t, Schatten, AO und Sichtweite.", 20, 73)
-        self.style = self.MakeCombo("Grafik und Licht", 96, STYLES, self.OnStyle)
-        self.Text("Modern: Beleuchtung und Oberfl\xe4chen.", 20, 124)
-        self.vegetation = self.MakeCombo("Vegetation", 147, VEGETATION, self.OnVegetation)
-        self.Text("H\xf6here Stufen halten Details l\xe4nger sichtbar.", 20, 175)
-        self.Text("Sichtweite", 20, 209)
+        self.style = self.MakeCombo("Grafik und Licht", 90, STYLES, self.OnStyle)
+        self.Text("Modern: Beleuchtung und Oberfl\xe4chen.", 20, 118)
+        self.vegetation = self.MakeCombo("Vegetation", 135, VEGETATION, self.OnVegetation)
+        self.Text("H\xf6here Stufen halten Details l\xe4nger sichtbar.", 20, 163)
+        self.Text("Sichtweite", 20, 194)
         self.distance = ui.SliderBar()
         self.distance.SetParent(self)
-        self.distance.SetPosition(165, 211)
+        self.distance.SetPosition(165, 196)
         self.distance.SetEvent(ui.__mem_func__(self.OnDistance))
         self.distance.Show()
-        self.distanceText = self.Text("", 20, 232)
-        self.fog = self.MakeCombo("Nebel", 261, FOG, self.OnFog)
-        self.shadows = self.MakeCombo("Sonnenschatten", 296, SHADOWS, self.OnShadows)
-        self.ao = self.MakeCombo("Umgebungsverdeckung", 332, AO, self.OnAO)
-        self.bloom = self.MakeCombo("Bloom", 368, BLOOM, self.OnBloom)
-        self.sky = self.MakeCombo("Himmelqualit\xe4t", 404, ATMOSPHERE, self.OnSky)
-        self.water = self.MakeCombo("Wasserqualit\xe4t", 440, WATER, self.OnWater)
-        self.Text("Licht, Schatten und Wasser: Modus Modern.", 20, 481)
-        self.Text("\xc4nderungen werden sofort angewendet.", 20, 518)
+        self.distanceText = self.Text("", 20, 218)
+        self.fog = self.MakeCombo("Nebel", 248, FOG, self.OnFog)
+        self.shadows = self.MakeCombo("Sonnenschatten", 281, SHADOWS, self.OnShadows)
+        self.ao = self.MakeCombo("Umgebungsverdeckung", 314, AO, self.OnAO)
+        self.bloom = self.MakeCombo("Bloom", 347, BLOOM, self.OnBloom)
+        self.sky = self.MakeCombo("Himmelqualit\xe4t", 380, ATMOSPHERE, self.OnSky)
+        self.water = self.MakeCombo("Wasserqualit\xe4t", 413, WATER, self.OnWater)
+        self.Text("Licht, Schatten und Wasser: Modus Modern.", 20, 446)
+        self.Text("\xc4nderungen werden sofort angewendet.", 20, 558)
+        self.frameRateLimit = self.MakeCombo("FPS-Limit", 477, FRAME_RATE_LIMITS, self.OnFrameRateLimit)
+        self.vsync = self.MakeCombo("VSync", 513, VSYNC, self.OnVSync)
         self.Refresh()
         self.SetCenterPosition()
 
@@ -116,6 +120,8 @@ class GraphicsDialog(ui.BoardWithTitleBar):
             self.bloom.SetCurrentItem(BLOOM[values["bloom"]])
             self.sky.SetCurrentItem(ATMOSPHERE[values["modernSky"]])
             self.water.SetCurrentItem(WATER[values["water"]])
+            self.frameRateLimit.SetCurrentItem(FRAME_RATE_LIMITS[values["frameRateLimit"]])
+            self.vsync.SetCurrentItem(VSYNC[values["vsync"]])
             if values["style"] == 0:
                 self.fog.Show()
                 self.fog.label.Show()
@@ -162,6 +168,12 @@ class GraphicsDialog(ui.BoardWithTitleBar):
     def OnWater(self, index):
         self.Apply("water", index)
 
+    def OnFrameRateLimit(self, index):
+        self.Apply("frameRateLimit", index)
+
+    def OnVSync(self, index):
+        self.Apply("vsync", index)
+
     def OnDistance(self):
         if self.refreshing:
             return
@@ -203,5 +215,6 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         self.controls = []
         self.preset = self.style = self.vegetation = self.fog = None
         self.shadows = self.ao = self.bloom = self.sky = self.water = None
+        self.frameRateLimit = self.vsync = None
         self.distance = self.distanceText = None
         self.Hide()
