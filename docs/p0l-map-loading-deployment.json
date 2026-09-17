@@ -1,0 +1,12 @@
+{
+  "originalClient": "C:\\Users\\ZiiNAN\\Documents\\GitHub\\m2dev-client",
+  "protectedFiles": 97,
+  "time": "2026-09-17T09:48:45.7088593+02:00",
+  "releaseSHA256": "061FF2302AAB15B915380BB444D899C0A1B650A3DEBFF160F714B4155B1E2A1A",
+  "networkLogin": "NOT RUN",
+  "backup": "C:\\Users\\ZiiNAN\\Documents\\GitHub\\m2dev-client-src\\build-p0l\\deployment/backup/Metin2_Release.exe",
+  "oldSHA256": "6ED6C0047CBD7DD6F4A8DECA35B3A35C72B7040E4A4580BBABFC798F4AFDA1CE",
+  "protectedUnchanged": true,
+  "nativeEvidence": "C:\\Users\\ZiiNAN\\Documents\\GitHub\\m2dev-client-src/build-p0l/after/fast-gate.json",
+  "restartRequired": true
+}
