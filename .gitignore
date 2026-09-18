@@ -7,6 +7,8 @@ ErrorLog.txt
 # Generated runtime diagnostics, archived outside the client before cleanup.
 /*.log
 /skinning-benchmark.csv
+/frame-pacing.csv
+/map-load-trace.tsv
 
 *.eix
 *.epk
