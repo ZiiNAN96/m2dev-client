@@ -72,6 +72,7 @@ class SystemDialog(ui.ScriptWindow):
 		self.eventOpenHelpWindow = event
 
 	def OpenDialog(self):
+		self.SetCenterPosition(always=True)
 		self.Show()
 
 	def __ClickChangeCharacterButton(self):

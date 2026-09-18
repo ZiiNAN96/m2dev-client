@@ -95,19 +95,21 @@ class Interface(object):
 		if self.wndMiniMap:
 			self.wndMiniMap.SetPosition(width - 136, 0)
 		if self.wndChat:
-			self.wndChat.SetPosition(width // 2 - self.wndChat.CHAT_WINDOW_WIDTH // 2, height - self.wndChat.EDIT_LINE_HEIGHT - 37)
-			self.wndChat.Refresh()
+			self.wndChat.OnScreenSizeChange(width, height)
+		if self.wndGameButton:
+			self.wndGameButton.OnScreenSizeChange(width, height)
+		if self.wndEnergyBar:
+			self.wndEnergyBar.SetPosition(0, height - 55)
 		curtain = getattr(self, "wndUICurtain", None)
 		if curtain:
 			curtain.SetSize(width, height)
-		# Keep open movable panels reachable after reducing the viewport.
-		for window in tuple(self.__dict__.values()):
-			if isinstance(window, ui.Window) and window.IsShow():
-				x, y = window.GetLocalPosition()
-				window.SetPosition(max(0, min(x, max(0, width - window.GetWidth()))),
-					max(0, min(y, max(0, height - window.GetHeight()))))
+		# Includes hidden/lazily opened and nested top-level panels. Native child
+		# windows are deliberately excluded from screen positioning.
+		ui.ReflowScreenWindows(width, height)
 		if hasattr(self, "questButtonList") and self.wndParty:
 			self.__ArrangeQuestButton()
+		if hasattr(self, "whisperButtonList"):
+			self.__ArrangeWhisperButton()
 
 	def __del__(self):
 		systemSetting.DestroyInterfaceHandler()

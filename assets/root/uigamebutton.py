@@ -49,6 +49,14 @@ class GameButtonWindow(ui.ScriptWindow):
 
 		self.gameButtonDict={}
 
+	def OnScreenSizeChange(self, width, height):
+		self.SetSize(width, height)
+		self.SetPosition(0, 0)
+		for name, x, bottom in (("HELP", 50, 170), ("STATUS", 68, 100),
+			("QUEST", width - 82, 170), ("SKILL", width - 82, 100),
+			("BUILD", width - 82, 170), ("EXIT_OBSERVER", width - 82, 170)):
+			self.gameButtonDict[name].SetPosition(x, height - bottom)
+
 	def SetButtonEvent(self, name, event):
 		try:
 			self.gameButtonDict[name].SetEvent(event)

@@ -1469,7 +1469,12 @@ class GameWindow(ui.ScriptWindow):
 		size = (wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
 		if getattr(self, "_displaySize", size) != size:
 			self.SetSize(*size)
+			self.UpdateRect()
 			self.interface.OnScreenSizeChange(*size)
+			if self.targetBoard.IsShow():
+				self.targetBoard.UpdatePosition()
+			self.curtain.SetSize(*size)
+			self.console.SetConsoleSize(size[0], 200)
 		self._displaySize = size
 		app.UpdateGame()
 		

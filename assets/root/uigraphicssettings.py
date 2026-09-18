@@ -23,11 +23,29 @@ MAX_DISTANCE = 38400.0
 
 
 class GraphicsComboBox(ui.ComboBox):
+    class ListBoxWithBoard(ui.ComboBox.ListBoxWithBoard):
+        def OnMouseWheel(self, delta):
+            return self.wheelEvent(delta)
+
+        def OnUpdate(self):
+            ui.ListBox.OnUpdate(self)
+            x, y = self.GetMouseLocalPosition()
+            if x >= getattr(self, "contentWidth", self.GetWidth()) or self.overLine >= self.showLineCount:
+                self.overLine = -1
+
+        def OnMouseLeftButtonUp(self):
+            self.OnUpdate()
+            ui.ListBox.OnMouseLeftButtonUp(self)
+
     def __init__(self, closeOthers):
         ui.ComboBox.__init__(self)
         self.AddFlag("float")
         self.closeOthers = ui.__mem_func__(closeOthers)
         self.prepareOpen = None
+        self.visibleRows = 8
+        self.wheelRemainder = 0
+        self.listBox.wheelEvent = ui.__mem_func__(self.OnMouseWheel)
+        self.listBox.EnableScissorRect()
         self.scroll = ui.ScrollBar()
         self.scroll.SetParent(self.listBox)
         self.scroll.SetScrollEvent(ui.__mem_func__(self.OnScroll))
@@ -42,24 +60,53 @@ class GraphicsComboBox(ui.ComboBox):
         ui.ComboBox.OnMouseLeftButtonUp(self)
         if self.isListOpened:
             count = self.listBox.GetItemCount()
-            height = min(8, count) * self.listBox.stepSize
+            parent = self.GetParentProxy()
+            localY = self.GetLocalPosition()[1]
+            below = parent.GetHeight() - localY - self.height - 10
+            above = localY - 5
+            desired = min(8, count) * self.listBox.stepSize
+            upwards = desired > below and above > below
+            available = above if upwards else below
+            self.visibleRows = max(1, min(8, count, available // self.listBox.stepSize))
+            height = self.visibleRows * self.listBox.stepSize
+            self.listBox.SetPosition(0, -height - 5 if upwards else self.height + 5)
             self.listBox.SetSize(self.width, height)
             self.listBox.SetBasePos(0)
-            if count > 8:
-                self.scroll.SetPosition(self.width - 15, 0)
+            self.wheelRemainder = 0
+            self.listBox.contentWidth = self.width
+            if count > self.visibleRows:
                 self.scroll.SetScrollBarSize(height)
-                self.scroll.SetMiddleBarSize(8.0 / count)
+                self.listBox.contentWidth -= self.scroll.GetWidth()
+                self.scroll.SetPosition(self.listBox.contentWidth, 0)
+                self.scroll.SetMiddleBarSize(float(self.visibleRows) / count)
+                self.scroll.SetScrollStep(1.0 / (count - self.visibleRows))
                 self.scroll.SetPos(0)
                 self.scroll.Show()
             else:
                 self.scroll.Hide()
 
     def OnScroll(self):
-        self.listBox.SetBasePos(int(self.scroll.GetPos() * max(0, self.listBox.GetItemCount() - 8)))
+        maximum = max(0, self.listBox.GetItemCount() - self.visibleRows)
+        self.listBox.SetBasePos(min(maximum, int(round(self.scroll.GetPos() * maximum))))
+
+    def OnMouseWheel(self, delta):
+        if not self.isListOpened:
+            return False
+        self.wheelRemainder += delta
+        steps = int(self.wheelRemainder / 120)
+        self.wheelRemainder -= steps * 120
+        maximum = max(0, self.listBox.GetItemCount() - self.visibleRows)
+        if maximum and steps:
+            base = max(0, min(maximum, self.listBox.basePos - steps))
+            self.scroll.SetPos(float(base) / maximum)
+        # Consume even at the limits so a scroll never zooms the scene behind.
+        return True
 
     def Destroy(self):
         self.closeOthers = None
         self.prepareOpen = None
+        self.listBox.wheelEvent = None
+        self.scroll.Destroy()
         self.scroll = None
         ui.ComboBox.Destroy(self)
 
@@ -130,7 +177,7 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         caption = self.Text(label, 20, y + 4)
         combo = GraphicsComboBox(self.CloseOtherCombos)
         combo.label = caption
-        combo.SetParent(self)
+        combo.SetParentProxy(self)
         combo.SetPosition(165, y)
         combo.SetSize(175, 22)
         for index, name in enumerate(choices):
@@ -207,12 +254,10 @@ class GraphicsDialog(ui.BoardWithTitleBar):
         state = (values["resolutionWidth"], values["resolutionHeight"], values["displayMode"])
         if state != self.lastDisplay:
             self.RefreshDisplayOptions()
-            self.SetCenterPosition()
         seconds = systemSetting.GetDisplayConfirmationSeconds()
         if seconds:
             if not self.confirmation:
                 self.CloseOtherCombos(None)
-                self.SetCenterPosition()
                 self.confirmation = uiCommon.QuestionDialog()
                 self.confirmation.SetAcceptText("Beibehalten")
                 self.confirmation.SetCancelText("Zur\xfcck")
@@ -233,6 +278,9 @@ class GraphicsDialog(ui.BoardWithTitleBar):
                 self.lastSeconds = seconds
         elif self.confirmation:
             self.CloseConfirmation()
+
+    def OnScreenSizeChange(self, width, height):
+        self.CloseOtherCombos(None)
 
     def CloseOtherCombos(self, selected):
         for combo in self.combos:

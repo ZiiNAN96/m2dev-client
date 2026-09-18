@@ -29,7 +29,7 @@ class PopupDialog(ui.ScriptWindow):
 			exception.Abort("PopupDialog.LoadDialog.BindObject")
 
 	def Open(self):
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.SetTop()
 		self.Show()
 
@@ -45,7 +45,7 @@ class PopupDialog(ui.ScriptWindow):
 		height = self.GetHeight()
 		self.SetSize(width, height)
 		self.board.SetSize(width, height)
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.UpdateRect()
 
 	def SetText(self, text):
@@ -89,7 +89,7 @@ class InputDialog(ui.ScriptWindow):
 
 	def Open(self):
 		self.inputValue.SetFocus()
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.SetTop()
 		self.Show()
 
@@ -239,7 +239,7 @@ class QuestionDialog(ui.ScriptWindow):
 		self.cancelButton = self.GetChild("cancel")
 
 	def Open(self):
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.SetTop()
 		self.Show()
 
@@ -250,7 +250,7 @@ class QuestionDialog(ui.ScriptWindow):
 		height = self.GetHeight()
 		self.SetSize(width, height)
 		self.board.SetSize(width, height)
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.UpdateRect()
 
 	def SAFE_SetAcceptEvent(self, event):
@@ -287,7 +287,7 @@ class QuestionDialog(ui.ScriptWindow):
 		self.board.SetSize(self.BASE_WIDTH, newH)
 		self.acceptButton.SetPosition(-40, btnY)
 		self.cancelButton.SetPosition(+40, btnY)
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.UpdateRect()
 	# MR-15: -- END OF -- Multiline dialog messages
 
@@ -346,7 +346,7 @@ class QuestionDialog2(QuestionDialog):
 		self.board.SetSize(280, newH)
 		self.acceptButton.SetPosition(-40, btnY)
 		self.cancelButton.SetPosition(+40, btnY)
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.UpdateRect()
 	# MR-15: -- END OF -- Multiline dialog messages
 
@@ -372,7 +372,7 @@ class QuestionDialogWithTimeLimit(QuestionDialog2):
 		self.cancelButton = self.GetChild("cancel")
 
 	def Open(self, msg, timeout):
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.SetTop()
 		self.Show()
 
@@ -413,7 +413,7 @@ class MoneyInputDialog(ui.ScriptWindow):
 		self.inputValue.SetText("")
 		self.inputValue.SetFocus()
 		self.__OnValueUpdate()
-		self.SetCenterPosition()
+		self.SetCenterPosition(always=True)
 		self.SetTop()
 		self.Show()
 

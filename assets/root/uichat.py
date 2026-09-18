@@ -579,7 +579,7 @@ class ChatWindow(ui.Window):
 
 		btnChatSizing = self.ChatButton()
 		btnChatSizing.SetOwner(self)
-		btnChatSizing.SetMoveEvent(ui.__mem_func__(self.Refresh))
+		btnChatSizing.SetMoveEvent(ui.__mem_func__(self.OnSizingMove))
 		btnChatSizing.Hide()
 		self.btnChatSizing = btnChatSizing
 
@@ -725,8 +725,25 @@ class ChatWindow(ui.Window):
 		self.__RefreshSizingBar()
 
 	def SetHeight(self, height):
+		self.preferredHeight = height
 		gxChat, gyChat = self.btnChatSizing.GetGlobalPosition()
 		self.btnChatSizing.SetPosition(gxChat, wndMgr.GetScreenHeight() - height)
+
+	def OnSizingMove(self):
+		self.Refresh()
+		self.preferredHeight = wndMgr.GetScreenHeight() - self.btnChatSizing.GetGlobalPosition()[1]
+
+	def OnScreenSizeChange(self, width, height):
+		# The detached drag handle and the input share the same bottom anchor.
+		# Preserve the user's chosen extent, not an old absolute screen Y.
+		x = (width - self.CHAT_WINDOW_WIDTH) // 2
+		y = height - self.EDIT_LINE_HEIGHT - 37
+		self.btnChatSizing.SetRestrictMovementArea(0, 0, width, height)
+		self.SetPosition(x, y)
+		extent = max(self.EDIT_LINE_HEIGHT + 37, min(getattr(self, "preferredHeight", 200), height))
+		self.btnChatSizing.SetPosition(x, height - extent)
+		self.Refresh()
+		self.curHeightBar = self.heightBar
 
 	###########
 	## Refresh

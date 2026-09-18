@@ -12,6 +12,18 @@ import guild
 # END_OF_MARK_BUG_FIX
 
 from _weakref import proxy
+from weakref import WeakSet
+
+# Existing top-level windows retain their original script position rule. Child
+# coordinates and fixed HUD layouts are handled by their existing owners.
+_screenWindows = WeakSet()
+
+def ReflowScreenWindows(width, height):
+	for window in tuple(_screenWindows):
+		window.ReflowToScreen(width, height)
+		hook = getattr(window, "OnScreenSizeChange", None)
+		if hook:
+			hook(width, height)
 
 BACKGROUND_COLOR = grp.GenerateColor(0.0, 0.0, 0.0, 1.0)
 DARK_COLOR = grp.GenerateColor(0.2, 0.2, 0.2, 1.0)
@@ -93,6 +105,8 @@ class Window(object):
 	def __init__(self, layer = "UI"):
 		self.hWnd = None
 		self.parentWindow = 0
+		self._screenPlacement = False
+		self._hasUIParent = False
 		self.onMouseLeftButtonUpEvent = None
 		self.RegisterWindow(layer)
 		self.Hide()
@@ -123,11 +137,14 @@ class Window(object):
 		return wndMgr.GetName(self.hWnd)
 
 	def SetParent(self, parent):		
+		self._hasUIParent = True
+		self._screenPlacement = False
+		_screenWindows.discard(self)
 		wndMgr.SetParent(self.hWnd, parent.hWnd)
 
 	def SetParentProxy(self, parent):
 		self.parentWindow=proxy(parent)
-		wndMgr.SetParent(self.hWnd, parent.hWnd)
+		self.SetParent(parent)
 
 	def GetParentProxy(self):
 		return self.parentWindow
@@ -157,6 +174,8 @@ class Window(object):
 		wndMgr.SetTop(self.hWnd)
 
 	def Show(self):
+		if self._screenPlacement:
+			self.ReflowToScreen(wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
 		wndMgr.Show(self.hWnd)
 
 	def Hide(self):
@@ -198,10 +217,64 @@ class Window(object):
 	def SetPosition(self, x, y):
 		wndMgr.SetWindowPosition(self.hWnd, int(x), int(y))
 
-	def SetCenterPosition(self, x = 0, y = 0):
+	def SetCenterPosition(self, x = 0, y = 0, always = False):
 		center_x = (wndMgr.GetScreenWidth() - self.GetWidth()) // 2 + int(x)
 		center_y = (wndMgr.GetScreenHeight() - self.GetHeight()) // 2 + int(y)
 		self.SetPosition(center_x, center_y)
+		self._screenCenterOffset = (int(x), int(y))
+		self._screenCenterLocked = always
+		self._screenPreferredPosition = None
+		self._screenLayoutPosition = self.GetLocalPosition()
+		self._EnableScreenPlacement()
+
+	def _EnableScreenPlacement(self):
+		if not self._hasUIParent:
+			self._screenPlacement = True
+			_screenWindows.add(self)
+
+	def SetScreenPositionScript(self, code, context, filename):
+		# Retain the *same* declarative source, including locale-specific rules.
+		# Re-evaluate root x/y only; never rebuild children, sizes, slots or state.
+		self._screenPositionScript = (code, context)
+		self._screenPositionSource = filename
+		self._screenPositionCache = ((wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight()), self.GetLocalPosition())
+		self._screenCenterOffset = None
+		self._screenCenterLocked = False
+		self._screenPreferredPosition = None
+		self._screenLayoutPosition = self.GetLocalPosition()
+		self._EnableScreenPlacement()
+
+	def GetScreenPadding(self):
+		return (0, 0, 0, 0)
+
+	def ReflowToScreen(self, width, height):
+		"""Original opening rule until moved; then preserve the user's position."""
+		current = self.GetLocalPosition()
+		if current != getattr(self, "_screenLayoutPosition", None) and not getattr(self, "_screenCenterLocked", False):
+			self._screenPreferredPosition = current
+			self._screenCenterOffset = None
+		center = getattr(self, "_screenCenterOffset", None)
+		preferred = getattr(self, "_screenPreferredPosition", None)
+		if preferred is not None:
+			x, y = preferred
+		elif center is not None:
+			x, y = (width - self.GetWidth()) // 2 + center[0], (height - self.GetHeight()) // 2 + center[1]
+		elif getattr(self, "_screenPositionScript", None):
+			viewport, position = self._screenPositionCache
+			if viewport != (width, height):
+				code, context = self._screenPositionScript
+				values = dict(context, SCREEN_WIDTH=width, SCREEN_HEIGHT=height)
+				exec(code, values)
+				position = (int(values["window"]["x"]), int(values["window"]["y"]))
+				self._screenPositionCache = ((width, height), position)
+			x, y = position
+		else:
+			x, y = current
+		left, top, right, bottom = self.GetScreenPadding()
+		x = max(left, min(x, width - self.GetWidth() - right))
+		y = max(top, min(y, height - self.GetHeight() - bottom))
+		self.SetPosition(x, y)
+		self._screenLayoutPosition = self.GetLocalPosition()
 
 	def IsFocus(self):
 		return wndMgr.IsFocus(self.hWnd)
@@ -2413,6 +2486,7 @@ class ListBox(Window):
 
 		textLine = TextLine()
 		textLine.SetParent(self)
+		textLine.AddFlag("not_pick")
 		textLine.SetText(text)
 		textLine.Show()
 
@@ -2658,6 +2732,7 @@ class ComboBox(Window):
 
 		self.textLine = MakeTextLine(self)
 		self.textLine.SetText(localeInfo.UI_ITEM)
+		self.textLine.AddFlag("not_pick")
 
 		self.listBox = self.ListBoxWithBoard("TOP_MOST")
 		self.listBox.SetPickAlways()
@@ -2858,7 +2933,8 @@ class PythonScriptLoader(object):
 			self.ScriptDictionary["DRAGON_SOUL_EQUIPMENT_SLOT_START"] = player.DRAGON_SOUL_EQUIPMENT_SLOT_START
 			self.ScriptDictionary["LOCALE_PATH"] = app.GetLocalePath()
 			self.ScriptDictionary["LOCALE_PATH_COMMON"] = app.GetLocalePathCommon()
-			exec(compile(open(FileName, "rb").read(), FileName, 'exec'), self.ScriptDictionary)
+			scriptCode = compile(open(FileName, "rb").read(), FileName, 'exec')
+			exec(scriptCode, self.ScriptDictionary)
 		except IOError as err:
 			import sys
 			import dbg			
@@ -2903,6 +2979,10 @@ class PythonScriptLoader(object):
 					window.AddFlag(StyleList)
 
 		self.LoadChildren(window, Body)
+		if "movable" in Body.get("style", ()):
+			context = {key: self.ScriptDictionary[key] for key in ("PLAYER_NAME_MAX_LEN",
+				"DRAGON_SOUL_EQUIPMENT_SLOT_START", "LOCALE_PATH", "LOCALE_PATH_COMMON")}
+			window.SetScreenPositionScript(scriptCode, context, FileName)
 
 	def LoadChildren(self, parent, dicChildren):
 		if app.IsRTL():

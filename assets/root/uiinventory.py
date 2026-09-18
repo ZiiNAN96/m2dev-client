@@ -163,12 +163,12 @@ class BeltInventoryWindow(ui.ScriptWindow):
 		bx, by = self.GetBasePosition()
 		
 		if self.IsOpeningInventory():			
-			self.SetPosition(bx, by)
 			self.SetSize(self.ORIGINAL_WIDTH, self.GetHeight())
+			self.SetPosition(bx, by)
 			
 		else:
-			self.SetPosition(bx + 138, by)
 			self.SetSize(10, self.GetHeight())
+			self.SetPosition(bx + 138, by)
 
 	def __LoadWindow(self):
 		if self.isLoaded == 1:
@@ -1260,4 +1260,16 @@ class InventoryWindow(ui.ScriptWindow):
 		if self.wndBelt:
 #			print "Belt Global Pos : ", self.wndBelt.GetGlobalPosition()
 			self.wndBelt.AdjustPositionAndSize()
+
+	def SetPosition(self, x, y):
+		ui.ScriptWindow.SetPosition(self, x, y)
+		# Programmatic reflow must notify the same existing attachment as a drag.
+		if self.wndBelt:
+			self.wndBelt.AdjustPositionAndSize()
+
+	def GetScreenPadding(self):
+		left = 0
+		if self.wndBelt and self.wndBelt.IsShow():
+			left = 148 if self.wndBelt.IsOpeningInventory() else 10
+		return (left, 0, 0, 0)
 						
