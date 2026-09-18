@@ -201,3 +201,141 @@ Runtime-Git zum Abschluss: ausschließlich `docs/production-milestone-deployment
 Lokale Evidenz unter `m2dev-client-src/build-p0l-final-production/`: `build-release.log`, `deployment.json`, `backup-manifest.json`, `protected-before.json`, `protected-after.json`, Paketvergleichs-TSVs, `zero-legacy.json`, `shader-cache-check.json`, `result.json`; je `empty/` und `warm/` Launch/Exit, native Traces, Ressourcen-/Lifecycle-Logs, `fast-gate.json` und `first-use-analysis.json`. Bestehende Prüfer aus `tests/Loading` wiederverwendet; keine vollständige Testsuite oder Visual-Galerie ausgeführt.
 
 **Client neu starten. STOP nach diesem Deployment.**
+
+## P2 FINAL Production Deployment – 17.09.2026
+
+**P2 PRODUCTION = GO. P2 deployed. Source Commit: `4b2477d`.** Frischer Release-Build, EXE-Deployment und kurzes Originalclient-Gate abgeschlossen. Keine weitere Optimierung, kein P3, keine Änderung an VSync/Present/FPS-Limiter, kein Commit und kein Push.
+
+### Identität, Backup und Deployment
+
+| Punkt | Verifizierter Stand |
+| --- | --- |
+| Source | `m2dev-client-src`, Branch `feature/p2-runtime-performance`, HEAD `4b2477db3e2653279a49ba86f0684b987e05d8b7`, Worktree vor/nach Deployment sauber |
+| Runtime | Normaler `m2dev-client`, Branch `main`, HEAD `d54637a4b323b9d40f0e200951c40d4d226a2cfc` |
+| Finaler Build | Frischer MSBuild-Rebuild von `UserInterface` und Abhängigkeiten, Release/x64, Exit 0; bestehende Python/zlib-PDB-Linkerwarnungen |
+| Dauerhaft ersetzt | Ausschließlich `Metin2_Release.exe`; installierter SHA256 identisch mit frischem Buildoutput |
+| Deployment-Zeit | 2026-09-17T20:56:13.4650956+02:00 |
+| Alte EXE / verifiziertes Backup SHA256 | `7D4582444DC7DF7D18099D62E2DF0222DA1642D00423A322A3C10BAA24EB8F19` |
+| Neue EXE SHA256 | `DFC1165FC0D3AB44D8E94DC8CAB63EAF1D0BB2F47895C38406488B26B12A3E9D` |
+| Unverändertes Produktions-Root-Paket SHA256 | `6A6D2017373876FBEBF4774A90AFB1712C0FD78D33A0B83C083CA875185B4CF3` |
+
+EXE-Backup: `m2dev-client-src/build-p2-final-production/backup/Metin2_Release.exe`. Zusätzlich wurde nur das tatsächlich vorübergehend ersetzte `pack/root.pck` gesichert. Die drei durch den Smoke überschriebenen bisherigen Logs (`renderer-startup.log`, `vegetation-runtime.log`, `log/syserr.txt`) liegen unter `backup/smoke-state/` und wurden danach bytegenau wiederhergestellt. Keine vollständige Clientkopie. Von 549 geschützten Dateien ist ausschließlich die Release-EXE dauerhaft geändert; **548 unverändert**, einschließlich Debug-EXE, Paketen, Assetquellen, Einstellungen und bisherigen Logs.
+
+Die freigegebene EXE enthält die P2-Mesh-/Shadow-Bindungswiederverwendung, native Dust-Texture-Lifetime und gepufferte optionale Effect-Diagnose sowie den bestehenden P0-L-/Shadercache-/GR2-/Animation-/Production-Prewarm-Stand. Der native Standard bleibt `m_iFPS = 60`; der P2-Commit verändert keine Pacing-Datei. `app.RuntimePerf` ist in der produktiven EXE nicht vorhanden; keine uncapped-Konfiguration oder Profiling-Binary übernommen. Die kurzen nativen FPS-Zähler meldeten in allen Phasen beider Läufe **61 Render-/Update-FPS** im bestehenden nominellen 60-FPS-Pfad. Uncapped-Present-Tails wurden nicht bewertet oder bearbeitet.
+
+### Originalclient-Smoke und Sichtprüfung
+
+Tatsächlich gestartete Datei: `C:\Users\ZiiNAN\Documents\GitHub\m2dev-client\Metin2_Release.exe`, Arbeitsverzeichnis derselbe Originalordner. Kein Testclient gestartet. Zwei kurze Prozesse: **PID 22492**, 118.11 s, und sichtbare Wiederholung **PID 42796**, 117.68 s; jeweils Exit **0** und `ShutdownClean`.
+
+In beiden Läufen: **A1 Idle → Laufen → volle Kameradrehung → Kampf/Effekte → dieselbe 25-s-Traversal-Strecke zweimal → B1 → A1 zurück → sauberer Exit**. Vollständiger nativer `chrmgr.PrewarmVisibleActors(True)` im aktiven GPU-Frame vor den Beobachtungsphasen; `NativePrewarmFailures=0`, `NativePrewarmLimited=0`. Bestehende Grafikqualität und View Distance beibehalten. Vorhandener Shadercache in einem isolierten Evidenzverzeichnis wiederverwendet; der Benutzer-Cache unverändert.
+
+Für den netzwerkfreien Smoke wurde ausschließlich `prototype.py` im installierten Root-Paket vorübergehend ersetzt. Vergleich: **342 Einträge, genau 1 Änderung, 0 neue Einträge**. Die 341 anderen Einträge entsprechen bytegenau dem vorgefundenen Produktionspaket. Die losen Runtime-Assetquellen haben 121 bereits bestehende reine Zeilenendenabweichungen gegenüber diesem Paket; deshalb wurde der zuvor gesicherte, vollständig gegen das installierte Paket geprüfte Inhalt als Smoke-Basis verwendet. Keine dieser Abweichungen wurde deployed oder korrigiert. Nach jedem Exit normales Netzwerk-Startpaket bytegenau zurückgespielt und SHA256 geprüft. Kein Netzwerklogin erforderlich oder ausgeführt.
+
+Die erste Sichtprüfung konnte der Nutzer nicht beobachten. Danach wurde der zweite Lauf ausdrücklich sichtbar gestartet. Nutzerbestätigung nach diesem Lauf: **„Alles vollständig und unauffällig; Lauf beendet“**. Damit sind vollständige Meshes/Schatten/Materialien/Effekte, ruhige Vegetation und keine auffälligen neuen sichtbaren Ruckler für diesen kurzen Ablauf bestätigt. Zusätzlich drei native Einzelbilder des ersten Laufs auf sichtbare Inhalte geprüft; keine Visual-Galerie oder große Testsuite.
+
+### P2-Sanity, World Stability und Fast Gate
+
+| Prüfung | Ergebnis |
+| --- | --- |
+| Dust Resources | **PASS:** Dust im nativen Effect-Pfad aktiv. Während der wiederholten 25-s-Strecke jeweils **0 Pack-Reads, 0 CreateTexture, 0 CreateBuffer** insgesamt, damit auch keine erneuten Dust-Reads/-Creations. Je rund 1.516 präsentierte Frames; aktive Mesh-/Vegetation-Requests belegen das Beobachtungsfenster. |
+| Effect Burst / optionale Diagnose | **PASS:** In allen Gameplay-Phasen beider Prozesse existiert noch keine `effect-renderer.log`; erst beim sauberen Exit werden jeweils 34 deduplizierte Diagnosezeilen geschrieben. Kampf-, Dust- und Wasserfalleffekte aktiv, keine Effect-ERROR-Zeile. Der beanstandete synchrone Diagnose-Schreib-/Flush-Pfad belastet diese Gameplay-Frames nicht; keine neue Zeitmess-/Optimierungsserie. |
+| Static / Shadow Resources | **PASS:** Sichtprüfung bestätigt; erster Lauf 1.069.864 Mesh-Draws und 2.476.647 Shadow-Draws, keine Binding-/Rendererfehler. |
+| Sektoren / Terrain / World | **PASS:** Innerhalb sämtlicher Bewegungsphasen keine Terrain-/Area-Loads/-Unloads, keine Terrain-Neuzuweisung und keine neu erstellten Bäume. Auf der Wiederholungsstrecke auch keine Buffer-/Texturerstellung; kein Hinweis auf Terrain-Patch-/World-Rebuild. Keine neue feine Patch-Instrumentierung eingebaut. |
+| Instance Buffer / Vegetation | Erste Traversal-Erschließung 6 Instance-Buffer-Erstellungen; wiederholte Strecke **0**, dazu **0 neue Bäume und 0 LOD-Wechsel**. Kein wiederholter Aufbau; Sichtprüfung bestätigt fehlendes neues Flattern. |
+| Fast Gate | **PASS in beiden Originalläufen:** Release, A1/B1/A1, Laufstrecke, Effekte, Exit 0, `ShutdownClean`, leeres frisches Python-Fehlerlog. |
+| Diligent / GPU / CPU | `DiligentErrors=0`, `DiligentFatals=0`, `GPUFallbacks=0`, `AllCPUDeformationCalls=0`, `AllCPUDeformationVertices=0`. |
+| Shutdown | Alle vorhandenen Fast-Gate-Ressourcen **0**: Source, Skin, Paletten, Collision, Vegetation, Assets, GR2, Animation, Prototypes, Modern/Water sowie Terrain-/Objekt-/Mount-Ressourcen. |
+| Zero Legacy | **PASS:** Imports der tatsächlich installierten EXE ohne D3D9/D3DX9, Granny/granny2.dll und SpeedTree; einschlägige SDK-Marker 0. Native Logs `GrannyFileReads=0` bei aktivem eigenem GR2-/Vegetationspfad. Nur kurze Sanity, kein erneuter Vollaudit. |
+
+Für die beiden Traversal-Fenster wurde ausschließlich der vorhandene optionale `MapLoadTrace` mit bereits vorhandenen Zählern verwendet. Erste Sichtbarkeits-/Ressourcennutzung ist von der unveränderten Wiederholung getrennt; keine Behauptung, dass beim allerersten Besuch keinerlei Ressourcen entstehen.
+
+### Git, Nachweise und STOP
+
+Runtime-Abschlussstatus: ausschließlich ` M docs/production-milestone-deployment.md`; nichts gestagt. Source weiterhin sauber auf `4b2477d`. Keine Logs, Caches, Backups, Screenshots, Traces, Debug-Dateien oder Benchmarkdaten deployed/gestagt. Frische Smoke-Dateien wurden hashgeprüft außerhalb des aktiven Clients archiviert und aus dem Runtimeordner entfernt; frühere Logs und Konfigurationen sind wiederhergestellt.
+
+Lokale Nachweise im ignorierten Source-Verzeichnis `build-p2-final-production/`: `build-release.log`, `deployment.json`, `backup-manifest.json`, `protected-before.json`, `normal-staging-source.tsv`, `smoke-pack-diff.tsv`, `production-imports.txt`, `zero-legacy.json`, `result-smoke.json`, `result.json`, `manual-acceptance.json`, `final-result.json`; unter `smoke/` und `visual/` jeweils Launch-/Exit-/Ressourcen-/Lifecycle-Nachweise und `fast-gate.json`. Keine Runtime-Commits, kein Push.
+
+**Client neu starten. STOP nach P2 Production Deployment; kein P3 begonnen.**
+
+
+## P3 FINAL — Production Deployment (2026-09-17)
+
+**P3 PRODUCTION: GO.** Frisch gebaut und im normalen Originalclient installiert; kurzer Offline-Smoke und drei echte Persistenz-Neustarts bestanden. Keine neue Produktentwicklung, kein Commit, kein Push.
+
+### Freigabestand und Deployment
+
+| Punkt | Nachweis |
+| --- | --- |
+| Source | `186facd6ed31e032d636f351a1ab7dfb774f6851` (`186facd`), Branch `codex/p3-frame-pacing`, vor/nachher sauber |
+| UI/Runtime | `f400975cbb9cfbd2613cc53e6eacd5e795422f3a` (`f400975c`), Branch `codex/p3-frame-pacing` |
+| Ausgangsänderung | Ausschließlich die vorhandene Änderung dieser Deployment-Dokumentation; vollständiger vorgefundener Inhalt bytegenau erhalten und nur ergänzt |
+| Release | Frischer vollständiger MSBuild-Rebuild von UserInterface einschließlich Abhängigkeiten, Release/x64, Exit 0; unverändertes freigegebenes Source-Tree. Bestehende Python/zlib-PDB-Linkerwarnungen. |
+| Deployment | 2026-09-17T21:48:23.0587642+02:00; normale `m2dev-client/Metin2_Release.exe` und `pack/root.pck` ersetzt |
+| Alte EXE / Backup SHA256 | `DFC1165FC0D3AB44D8E94DC8CAB63EAF1D0BB2F47895C38406488B26B12A3E9D` |
+| Neue EXE / installierter Buildoutput SHA256 | `C32EC53DDFD9971398E6DA271F253E427BEA526E205B391789E0ACA7168B8A42` |
+| Altes Root-Paket / Backup SHA256 | `6A6D2017373876FBEBF4774A90AFB1712C0FD78D33A0B83C083CA875185B4CF3` |
+| Neues normales Root-Paket SHA256 | `B3B1AF29EAC53A8FD3C84A15D8D319963B15B80D69C75EBF5A00D932882184AF` |
+
+Das Root-Paket enthält weiterhin **342 Einträge**. Genau **2 Einträge geändert**, **0 hinzugefügt**: `uichat.py` und `uigraphicssettings.py` aus dem freigegebenen UI-Commit. Belegt durch zwei aufeinanderfolgende vollständige Einzeländerungsvergleiche und anschließenden vollständigen Pack-/Source-Vergleich. Die übrigen 340 Einträge bleiben bytegleich. Bestehende Zeilenendenabweichungen loser Assetquellen wurden nicht mit deployed. Die bereits freigegebenen losen UI-Dateien bleiben unverändert.
+
+Minimale hashgeprüfte Sicherungen: `m2dev-client-src/build-p3-final-production/backup/Metin2_Release.exe`, `backup/pack/root.pck`, `backup/config/graphics.cfg` und die vorgefundene Dokumentation. Während des Smoke überschriebene frühere Logs zusätzlich unter `backup/smoke-state/`; anschließend bytegenau wiederhergestellt. **549 geschützte Runtime-Dateien geprüft: nur EXE und Root-Paket dauerhaft geändert, 547 unverändert**, einschließlich Debug-EXE, aller übrigen Pakete, Assetquellen, Benutzereinstellungen und früherer Logs. Die Dokumentation wird zusätzlich ausschließlich erweitert.
+
+Die EXE enthält den bestehenden P0-L-/P2-Stand und P3. Keine besondere Profiling-Binary oder neue Instrumentierung gebaut: `app.RuntimePerf` fehlt; `AnimationStallAudit=0`, `LoadWarmupAudit=0`. Der freigegebene optionale `--frame-pacing-capture` bleibt deaktiviert, keine `frame-pacing.csv` erzeugt. Ausschließlich für diesen kurzen Smoke vorhandene Renderer-/MapLoadTrace-Diagnose eingeschaltet; der wiederhergestellte normale Start aktiviert sie nicht. Keine Testclient-/Debug-Binaries, Traces, Screenshots, Logs, Caches, temporären Configs oder Benchmarkdaten dauerhaft deployed.
+
+### Originalclient, Menü, Live Apply und Persistenz
+
+Gestartet wurde ausschließlich `C:\Users\ZiiNAN\Documents\GitHub\m2dev-client\Metin2_Release.exe`, Arbeitsverzeichnis derselbe Originalordner; installierter SHA256 vor jeder Ausführung geprüft. Hauptlauf **PID 38808**, **79.04 s**, danach drei kurze neue Prozesse. Der Offline-Start ersetzt vorübergehend ausschließlich `prototype.py` gegenüber dem neuen normalen P3-Paket (**342 Einträge, 1 Änderung, 0 neue Einträge**). Nach jedem Lauf wird das neue normale Netzwerk-Startpaket hashgeprüft wiederhergestellt. Kein Netzwerklogin, keine Visual-Galerie, keine lange Testsuite.
+
+Das tatsächliche `OptionDialog → GraphicsDialog` im installierten Client wurde geöffnet und über die nativen ComboBox-Ereignisse bedient. **FPS-Limit: 60 / 120 / Unbegrenzt**, separate **VSync: Aus / Ein**; vollständige Eintragslisten sowie genau je eine Beschriftung geprüft. Keine doppelten Optionen oder Debug-Bezeichnungen in diesen Listen. Livefolge **60/Aus → 120/Aus → Unbegrenzt/Aus → 60/Aus → 60/Ein → 60/Aus** im selben Prozess bestanden; vor jeder Beobachtung bestätigte der Renderer die neuen Werte. Keine Qualitäts-/Distanzänderung, keine komplette Renderer-Neuinitialisierung: ein Start-/Shutdown-Lebenszyklus, vorhandener Apply-Pfad aktualisiert die Runtime-Konfiguration.
+
+| Persistenztest | Im vorherigen Prozess über das Grafikmenü gespeichert | Neuer Originalprozess bestätigt | Ergebnis |
+| --- | --- | --- | --- |
+| A | 120 / Aus | PID 23440, 4.02 s | PASS |
+| B | 60 / Ein | PID 38008, 4.35 s | PASS |
+| C | Unbegrenzt / Aus | PID 2204, 4.29 s | PASS |
+
+Jeder Prozess las die Werte aus der bestehenden echten `config/graphics.cfg`; die Datei wurde zwischen diesen Neustarts nicht ersetzt. Abschließend ist die ursprüngliche Benutzereinstellung **bytegenau** wiederhergestellt (SHA256 `E8563E771A6DCC19E892B83729E3AB8A04A887185CF32E637BE807D3B4AE925F`). Da sie noch keine P3-Schlüssel enthält, gilt der vorgesehene Default **60 FPS / VSync Ein**; alle übrigen Präferenzen bleiben erhalten. Keine komplette Testkonfiguration übernommen.
+
+### Kurzer Funktions- und Timing-Smoke
+
+Alle sechs Kombinationen in A1 jeweils mit Idle, nativer Kameradrehung und echter `MoveToDestPosition`-Bewegung; zusätzlich native Attack-/Animations-/Effektfolgen bei 60, 120 und Unbegrenzt. Keine pro Frame simulierte Teleport-Bewegung. Die Werte sind kurze Render-Callback-Abstände und vorhandene native Zustandszähler, keine erneute vollständige P3-Benchmark- oder Present-Tail-Analyse.
+
+| Kombination | Kurze beobachtete FPS über die Phasen | Ergebnis |
+| --- | --- | --- |
+| 60 / Aus | 60.00–60.01 | PASS |
+| 60 / Ein | 60.00–60.01 | PASS |
+| 120 / Aus | 120.00–120.04 | PASS |
+| 120 / Ein | 120.00–120.02 | PASS |
+| Unbegrenzt / Aus | 772.71–909.17 | PASS, eigener 60/120-Limiter aus |
+| Unbegrenzt / Ein | 164.84–164.86 | PASS, Display-/Present-begrenzt |
+
+VSync wird im unveränderten freigegebenen D3D11-Present-Pfad mit `PresentInterval(Off)=0`, `PresentInterval(On)=1` direkt an die SwapChain übergeben. Live-Wirkung durch den Wechsel von über 770 auf rund 165 FPS bestätigt. Aktuelles Display: RTX 5070 Ti, 2560×1440, WMI ganzzahlig 164 Hz, Treiber 32.0.16.1656. Aus garantiert weiterhin keine bestimmte Tearing-/DWM-/Treiberpolitik.
+
+**10.664 Beobachtungsintervalle** in der sechsfachen Matrix, **0 über 20 ms**, Maximum **17.496 ms**; Lade-/Vorbereitungs- und Scriptwechselphasen sind getrennt. Simulation in diesen kurzen Fenstern **60.44–60.90 Updates/s**, maximale Spielzeit-/Wallclock-Abweichung **11.30 ms**. Native Laufgeschwindigkeit **431.109–431.453 Einheiten/Spielsekunde**, Kameradrehung **90.886–90.932 Grad/Spielsekunde**. Zwei vollständige Attackfolgen pro geprüftem FPS-Modus jeweils **1.006–1.007 s**, native Effekte aktiv (474/477/476 maximale Partikel). Kein vom Renderlimit abhängiger Gameplay-Speed festgestellt. Bestehende ungefähr 60.6-Hz-Simulation bleibt erhalten; keine zusätzliche Render-Interpolation.
+
+**A1 → B1 → A1: PASS.** Nach A1-Laufen/Kampf/Effekten bei allen drei Limits: kurze native Bewegungswiederholung, Wechsel nach B1 und Bewegung, Rückkehr nach A1 und Bewegung, jeweils **120/Aus**, anschließend normaler sauberer Exit. Mapwechsel stammen aus diesem Originalclient-Prozess, nicht aus früheren privaten P3-Tests.
+
+### P2, Shader/Animation und Fast Gate
+
+| Prüfung | Frischer Originalclient-Nachweis |
+| --- | --- |
+| P2 Dust | Dust-Effekt aktiv. Kurze wiederholte native Laufstrecke: **301 Frames, 0 Pack-Reads, 0 CreateTexture, 0 CreateBuffer**; keine erneute Dust-Ladung. |
+| P2 Effect-Diagnose | Während sämtlicher Gameplay-Fenster keine `effect-renderer.log`; erst nach Shutdown **33 deduplizierte Zeilen**, Kampf-/Dust-Effekte enthalten, kein Effect-ERROR. |
+| P2 World Stability | In sämtlichen Beobachtungsfenstern 0 Terrain-/Area-Loads/-Unloads, 0 Terrain-Neuzuweisungen, 0 neue Bäume; Wiederholungsstrecke zusätzlich 0 neue Instance-Buffer. Kein wiederholter Sektor-/World-Aufbau in den vorhandenen Zählern. |
+| Shadercache | Bestehenden warmen Cache mit 74 Dateien im isolierten Evidenzordner verwendet; **126 Anfragen, 126 Hits, 0 Misses, 0 Runtime-Compiles, 0 Invalid-/Write-Failure-Ereignisse**. Benutzer-Cache nicht verändert. |
+| Animation Prewarm | `GR2Prewarm=1`, vor sichtbarer Beobachtung nativer `PrewarmVisibleActors(True)` im aktiven GPU-Frame; **1.364 Requests**, **0 Failures**, **0 Limited**. |
+| Attack/Damage/Death First Use | Bei 120/Aus jeweils 0 neue Runtime-Key-Bytes, 0 Key-Allokationen, 0 Clip-Misses, 0 späte GR2-Parses. Native Motion-Maxima **0.0087 / 0.0100 / 0.0108 ms**; keine beobachteten First-Use-Stalls. |
+| Fast Gate | **PASS in allen vier vollständigen Prozessen:** Exit 0, `ShutdownClean`, frische Python-Fehlerlogs leer. |
+| Diligent / GPU / CPU | **Diligent ERROR/FATAL=0, GPU fallback=0, CPU deformation calls/vertices=0.** |
+| Shutdown-Ressourcen | Sämtliche erfassten Source-/Skin-/Paletten-/Collision-/Vegetation-/Asset-/GR2-/Animation-/Prototype-/Modern-/Water-/Terrain-/Objekt-/Mount-Ressourcen **0**. |
+| Zero Legacy | **PASS:** Imports der installierten EXE ohne D3D9/D3DX, Granny/granny2.dll oder SpeedTree; bekannte SDK-Marker 0. Startup: eigener GR2-Reader, AnimationRuntime, GPU-Skinning und ZiiNAN-Vegetation; `GrannyFileReads=0`. |
+
+Die Auswertung ist eine automatisierte kurze Abnahme im normalen Originalclient; keine neue manuelle Sichtfreigabe oder Netzwerkprüfung behauptet. Ein erster 4-s-Prüfversuch endete wegen einer Script-Annahme über ein bereits automatisch geschlossenes Tracefenster; separat unter `attempt-1-trace-already-closed/` archiviert. Nur das temporäre Prüfscript wurde korrigiert, kein Produktcode oder Build geändert. Danach vier vollständige Läufe PASS.
+
+### Abschluss und Nachweise
+
+Runtime-Gitstatus weiterhin ausschließlich ` M docs/production-milestone-deployment.md`, nichts gestagt. Source sauber auf `186facd`; Runtime-HEAD unverändert `f400975c`. Kein Commit, kein Push. Temporäre Smoke-Dateien außerhalb des aktiven Clients hashgeprüft archiviert; normales P3-Startpaket und originale Konfiguration/Logs wiederhergestellt. Kein Clientprozess läuft weiter.
+
+Lokale Nachweise unter `m2dev-client-src/build-p3-final-production/`: `build-release.log`, `build-result.json`, `deployment.json`, `backup-manifest.json`, `protected-before.json`, Packvergleichs-TSVs, `production-imports.txt`, `zero-legacy.json`, `result.json`, `display.json`, finale Git-/Integritätsnachweise. In `smoke/`, `restart-a/`, `restart-b/`, `restart-c/`: Launch-/Exit-/Konfigurations-/Lebenszyklus-/Ressourcenbelege, `p3-smoke.jsonl`, `fast-gate.json`. Sämtliche Prüfartefakte bleiben im ignorierten Source-Buildordner.
+
+**Client neu starten. STOP nach P3 Production Deployment. Keine Interpolation, UI/Fonts 2.0, World-Editor-, Vulkan- oder weitere Performancearbeit begonnen.**
