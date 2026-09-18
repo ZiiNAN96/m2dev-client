@@ -1465,7 +1465,12 @@ class GameWindow(ui.ScriptWindow):
 	def OnMouseMiddleButtonUp(self):
 		player.SetMouseMiddleButtonState(player.MBS_CLICK)
 
-	def OnUpdate(self):	
+	def OnUpdate(self):
+		size = (wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight())
+		if getattr(self, "_displaySize", size) != size:
+			self.SetSize(*size)
+			self.interface.OnScreenSizeChange(*size)
+		self._displaySize = size
 		app.UpdateGame()
 		
 		if self.mapNameShower.IsShow():

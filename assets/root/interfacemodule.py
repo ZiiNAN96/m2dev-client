@@ -86,6 +86,29 @@ class Interface(object):
 		self.equipmentDialogDict = {}
 		event.SetInterfaceWindow(self)
 
+	def OnScreenSizeChange(self, width, height):
+		# Reposition existing HUD objects; preserve inventory, chat and cooldown state.
+		if self.wndTaskBar:
+			self.wndTaskBar.OnScreenSizeChange(width, height)
+		if self.wndExpandedTaskBar:
+			self.wndExpandedTaskBar.SetPosition(width // 2 - 5, height - 74)
+		if self.wndMiniMap:
+			self.wndMiniMap.SetPosition(width - 136, 0)
+		if self.wndChat:
+			self.wndChat.SetPosition(width // 2 - self.wndChat.CHAT_WINDOW_WIDTH // 2, height - self.wndChat.EDIT_LINE_HEIGHT - 37)
+			self.wndChat.Refresh()
+		curtain = getattr(self, "wndUICurtain", None)
+		if curtain:
+			curtain.SetSize(width, height)
+		# Keep open movable panels reachable after reducing the viewport.
+		for window in tuple(self.__dict__.values()):
+			if isinstance(window, ui.Window) and window.IsShow():
+				x, y = window.GetLocalPosition()
+				window.SetPosition(max(0, min(x, max(0, width - window.GetWidth()))),
+					max(0, min(y, max(0, height - window.GetHeight()))))
+		if hasattr(self, "questButtonList") and self.wndParty:
+			self.__ArrangeQuestButton()
+
 	def __del__(self):
 		systemSetting.DestroyInterfaceHandler()
 		event.SetInterfaceWindow(None)

@@ -420,6 +420,23 @@ class TaskBar(ui.ScriptWindow):
 		#print "---------------------------------------------------------------------------- DELETE TASKBAR"
 		ui.ScriptWindow.__del__(self)
 
+	def OnScreenSizeChange(self, width, height):
+		self.SetSize(width, 37)
+		self.SetPosition(0, height - 37)
+		self.GetChild("Base_Board_01").SetRenderingRect(0.0, 0.0, float(width - 263 - 256) / 256.0, 0.0)
+		for name, x in (("LeftMouseButton", width // 2 - 128),
+				("RightMouseButton", width // 2 + 205), ("quickslot_board", width // 2 - 86),
+				("CharacterButton", width - 144), ("InventoryButton", width - 110),
+				("MessengerButton", width - 76), ("SystemButton", width - 42)):
+			child = self.GetChild(name)
+			child.SetPosition(x, child.GetLocalPosition()[1])
+		self.curSkillButton.SetPosition(width // 2 + 205, 3)
+		for direction in (self.MOUSE_BUTTON_LEFT, self.MOUSE_BUTTON_RIGHT):
+			x, y = self.curMouseModeButton[direction].GetGlobalPosition()
+			panel = self.mouseModeButtonList[direction]
+			panel.SetPosition(x if direction == self.MOUSE_BUTTON_LEFT else x - panel.GetWidth() + 32, y - panel.GetHeight() - 5)
+		self.mouseImage.SetPosition(width // 2 + 205, height - 34)
+
 	def LoadWindow(self):
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
