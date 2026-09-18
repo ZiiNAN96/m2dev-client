@@ -339,3 +339,94 @@ Runtime-Gitstatus weiterhin ausschließlich ` M docs/production-milestone-deploy
 Lokale Nachweise unter `m2dev-client-src/build-p3-final-production/`: `build-release.log`, `build-result.json`, `deployment.json`, `backup-manifest.json`, `protected-before.json`, Packvergleichs-TSVs, `production-imports.txt`, `zero-legacy.json`, `result.json`, `display.json`, finale Git-/Integritätsnachweise. In `smoke/`, `restart-a/`, `restart-b/`, `restart-c/`: Launch-/Exit-/Konfigurations-/Lebenszyklus-/Ressourcenbelege, `p3-smoke.jsonl`, `fast-gate.json`. Sämtliche Prüfartefakte bleiben im ignorierten Source-Buildordner.
 
 **Client neu starten. STOP nach P3 Production Deployment. Keine Interpolation, UI/Fonts 2.0, World-Editor-, Vulkan- oder weitere Performancearbeit begonnen.**
+
+
+## P3 FINAL PRODUCTION — Main-Integration und Userconfig-Abschluss (18.09.2026)
+
+**P3 FINAL PRODUCTION = GO.** Display-Änderungen separat committed, beide lokalen main-Branches per Fast-Forward integriert, Release vollständig aus sauberem Source-main neu gebaut und im normalen produktiven Client installiert. Gezieltes Main-Gate und Production-Prüfungen bestanden. Kein Push, keine Branch-Löschung und keine weitere Entwicklungsphase.
+
+### Commits und Buildidentität
+
+| Punkt | Stand |
+| --- | --- |
+| Source main HEAD / Production-Build | `1bd011cf42c349af47bd4cdb8aaed19a87ab3a60` |
+| Runtime main HEAD beim Deployment, vor diesem Doku-Commit | `5afdf764d7d4e27da89fcfd6adb86fa7a9192441` |
+| P3 Source / UI | `186facd6ed31e032d636f351a1ab7dfb774f6851` / `f400975cbb9cfbd2613cc53e6eacd5e795422f3a` |
+| Display Source Commit | `1bd011cf42c349af47bd4cdb8aaed19a87ab3a60` |
+| Display UI Commit | `653f19d9662e084d72d9660185dfd8ae6cd95c9e` |
+| Bereits vorhandene P2/P3-Deployment-Dokumentation | `5afdf764d7d4e27da89fcfd6adb86fa7a9192441`; separat von UI und Benutzerconfigs committed |
+| Main-Integration | Source `ed3e744` → `1bd011c`, Runtime `d54637a4` → `5afdf764`; ausschließlich Fast-Forward; origin vorab gefetcht, kein Rebase/Squash/Force |
+| Main vor Deployment | Beide Working-Copies clean; Nachweis `main-before-deployment.json` |
+| Release | Vollständiger MSBuild-Rebuild von UserInterface und Abhängigkeiten, Release/x64, Exit 0; kein Feature-/Testclient-/Debug-/Profiling-Build übernommen |
+| Gezieltes Main-Gate | **10/10 PASS**: FramePacing, Presets, Custom, Invalid, LiveApply, Display, Persistence, WriteRestart, ReadRestart, DisplayConfiguration; keine historische Vollsuite |
+
+Dieser Doku-Abschluss wird separat mit `chore(client): document P3 production deployment` committed. Der dadurch entstehende Runtime-main-HEAD wird im finalen Git-Nachweis und Abschlussbericht ausgewiesen; der Build-/Deployment-HEAD oben bleibt unverändert nachvollziehbar.
+
+### Benutzerconfigs und lokale Git-Behandlung
+
+Beide vorgefundenen Benutzerconfigs wurden **vor jeder Änderung bytegenau** im ignorierten Source-Ordner `build-p3-main-production/backup/config/` gesichert. Die Diffs waren ausschließlich Laufzeitpräferenzen: `SHADOWS 4 → 5`, `VEGETATION 2 → 3`, `FRAME_RATE_LIMIT 2`, `VSYNC 1` sowie `SHADOW_LEVEL 4 → 5`. Keine Benutzerwerte wurden gestagt oder als globale Defaults übernommen. Die Repository-Blobs beider Configs sind unverändert gegenüber `f400975c`.
+
+Fehlende FPS-/VSync-Felder verwenden bereits **60 / Ein** und werden beim Speichern ergänzt. Der vorhandene FramePacing-Test prüft diese Migration und alle sechs Persistenzkombinationen. Keine Schema-/Template-Erweiterung erforderlich.
+
+Für Commit und Integration wurden exakt die beiden getrackten Configs auf HEAD restauriert. Vor dem EXE-/Pack-Deployment wurden die gesicherten Benutzerbytes wieder aktiviert. Jeder Prüfablauf stellt beide Dateien erneut bytegenau her. Finale aktive SHA256 = Backup-SHA256:
+
+- `config/graphics.cfg`: `875C7553982118DF39AF4D12DF9DC6934C08B613CF7325EEEB0C44099106B93D`
+- `config/metin2.cfg`: `D90C3CA9EF372BE99E219147AA3D80621E9AE46C83CC316663D78EDB463C9209`
+
+**Lokale Ausnahme zum sauberen Git-Status:** Genau diese zwei getrackten Templates tragen im lokalen Index `skip-worktree` (`S`). Die aktiven Benutzerdateien unterscheiden sich absichtlich von HEAD; `git status` meldet sie deshalb nicht als Codeänderung. Es handelt sich weder um committed Defaults noch um ein Entfernen aus der Versionsverwaltung. Nach vorheriger Sicherung lassen sich die Unterschiede wieder sichtbar machen mit `git update-index --no-skip-worktree -- config/graphics.cfg config/metin2.cfg`. Diese Flags gelten nur für diesen Checkout; keine globale Git-Konfiguration verändert.
+
+### Backup und Deployment
+
+Deployment: `2026-09-18T08:31:05.2985143+02:00`. Dauerhaft ersetzt wurden ausschließlich `Metin2_Release.exe` und `pack/root.pck`. Beide alten Dateien liegen hashgeprüft unter `build-p3-main-production/backup/`. Keine komplette Clientkopie.
+
+| Datei | Alter / Backup SHA256 | Neuer installierter SHA256 |
+| --- | --- | --- |
+| Release-EXE | `C32EC53DDFD9971398E6DA271F253E427BEA526E205B391789E0ACA7168B8A42` | `C1145D82B178BE2F627DB82621D93A99C54CAD5F33ED6511BFA4F837CBBAA5D1` |
+| Root-Pack | `B3B1AF29EAC53A8FD3C84A15D8D319963B15B80D69C75EBF5A00D932882184AF` | `AEA566D4B56A74B1A2D6A33E4C6B24B57546B1D7F5F97BF9A8939D46B96400E3` |
+
+Root-Pack: **342 Einträge, exakt 4 geändert, 0 hinzugefügt** (`game.py`, `interfacemodule.py`, `uigraphicssettings.py`, `uitaskbar.py`). Vier vollständige Einzeländerungsvergleiche plus finaler Pack-/Source-Abgleich bestanden; alle 338 übrigen Einträge bytegleich. Frühere Zeilenendenabweichungen loser Assets wurden nicht pauschal mit deployed. Keine Debug-Dateien, Logs, Caches, Testconfigs, Screenshots oder Backups dauerhaft übernommen. Von 550 geschützten Runtime-Dateien sind nur EXE und Root-Pack dauerhaft ersetzt, 548 unverändert, einschließlich beider Benutzerconfigs.
+
+### Production-Abnahme
+
+Alle gewerteten Prozesse starteten ausschließlich `C:\Users\ZiiNAN\Documents\GitHub\m2dev-client\Metin2_Release.exe` mit demselben normalen Clientordner als Arbeitsverzeichnis und mit dem oben dokumentierten Main-EXE-Hash. Vier Gameplay-/Persistenzprozesse und acht vollständig automatisierte Display-Prozesse sowie zwei manuell beendete Alt-Tab-Prozesse, insgesamt **14 gewertete Prozesse, jeweils Exit 0 und ShutdownClean**. Temporär wurde nur `prototype.py` im installierten Root-Pack für die netzwerkfreie Prüfung ersetzt; je Probe **342 Einträge, 1 Änderung, 0 neue Einträge**. Nach jedem Lauf normales Netzwerk-Startpaket hashgeprüft wiederhergestellt. Kein Netzwerk-/Relog-Test behauptet.
+
+| Prüfung | Frischer Production-Nachweis |
+| --- | --- |
+| Display / Resolution | **PASS:** echte HWND-Clientgröße/-Stile, zentrale Settings, Runtime-Snapshot und UI-Größe stimmen überein; dynamische Monitorliste; 800×600, 1360×768 und 1920×1200 umgeschaltet, zusätzlich ursprüngliche 1024×768 verifiziert |
+| Fenster / Randlos | **PASS:** mehrfache Wechsel im selben Prozess; Randlos nutzt gemeldete Desktopgröße 2560×1440; Exclusive wird nicht angeboten |
+| HUD-Reflow | **PASS:** 12 Größenanpassungen; Taskbar und Minimap an erwarteten Positionen; 800×600-Screenshot visuell geprüft |
+| Live Apply / Bestätigen | **PASS:** native Displaytransaktion und tatsächliche UI-Callbacks; bestätigte Werte bleiben bestehen, explizites Abbrechen und Schließen setzen zurück |
+| 15-Sekunden-Rollback | **PASS:** absichtlich nicht bestätigte Vorschau, Grafikdialog verborgen; automatische Rückkehr nach 15.23 s, unbestätigte Werte weder durch Save noch Shutdown persistiert |
+| Startup Fallback | **PASS:** separate Starts mit 1234×777, Exclusive 2, ungültigem Mode 9 sowie übergroßen/negativen/nichtnumerischen Werten; jeweils sichere gültige Fensterkonfiguration |
+| Display-Persistenz | **PASS:** bestätigte Fensterwerte und Randlos jeweils in eigenem neuen Originalprozess unverändert geladen |
+| FPS / VSync / Persistenz | **PASS:** alle sechs Kombinationen live, drei zusätzliche Neustarts bestätigen 120/Aus, 60/Ein und Unbegrenzt/Aus |
+| Alt-Tab | **PASS, manuell durch Nutzer:** Fenster und Randlos im finalen installierten Main-Client, Fenster-PID 3688 und Randlos-PID 31564; Bild und Bedienung nach Rückkehr intakt; native Verifikation des jeweiligen Anzeigemodus vor der manuellen Prüfung und anschließend sauberer Exit |
+| Gameplay Timing | **PASS:** Simulation 60.45–61.00 Updates/s; Lauf-/Kamerageschwindigkeit und Attack-/Animations-/Effekt-Timing unabhängig vom Renderlimit, keine Interpolation hinzugefügt |
+| A1 → B1 → A1 | **PASS:** A1 mit Laufen/Kamera/Kampf/Effekten bei allen Limits, B1 mit Bewegung bei 120/Aus, Rückkehr A1 mit Bewegung bei Unbegrenzt/Aus |
+| P0/P2 Regression | **PASS:** gefüllter Cache 126/126 Hits, 0 Runtime-Compiles; GR2Prewarm=1, keine Prewarm-Fehler/-Begrenzungen; Attack/Damage/Death ohne neue Keys/Clip-Misses/GR2-Parses, native Motion-Maxima 0,0094/0,0091/0,0105 ms |
+| Dust / Effect / World | **PASS:** Wiederholungsstrecke 301 Frames, 0 Pack-Reads, 0 CreateTexture/CreateBuffer; Effect-Diagnose erst bei Shutdown (33 deduplizierte Zeilen); keine Terrain-/Area-Loads/-Unloads/-Neuzuweisungen oder neuen Bäume in Beobachtungsphasen |
+| Zero Legacy | **PASS:** installierte EXE-Imports ohne D3D9/D3DX9, Granny/granny2.dll und SpeedTree; SDK-Marker 0; eigener GR2-/Animation-/GPU-/Vegetationspfad aktiv |
+| Fast Gate | **PASS in allen 14 gewerteten Prozessen:** Diligent ERROR/FATAL=0, GPU fallback=0, CPU deformation calls/vertices=0, überwachte Shutdown-Ressourcen=0, Python-Fehlerlogs leer, Exit sauber |
+
+Kurze beobachtete Render-Kadenz, keine erneute vollständige Benchmarkserie:
+
+| Einstellung | FPS-Bereich | Ergebnis |
+| --- | --- | --- |
+| 60 / Aus | 60.00–60.01 | PASS |
+| 120 / Aus | 120.00–120.03 | PASS |
+| Unbegrenzt / Aus | 638.31–759.56 | PASS |
+| 60 / Ein | 60.00–60.01 | PASS |
+| 120 / Ein | 120.00–120.02 | PASS |
+| Unbegrenzt / Ein | 164.84–164.85 | PASS |
+
+9544 Intervalle in der sechsfachen Gameplay-Matrix, 0 über 20 ms, Maximum 17.345 ms. VSync-Ein bei Unbegrenzt wird durch den vorhandenen Display-/Present-Pfad begrenzt; keine Scanout-/Tearing-Garantie abgeleitet.
+
+Ein erster Alt-Tab-Versuch blieb wegen `Computer Use app approval timed out` unvollständig und wurde **nicht als PASS gewertet**. Bei seiner Wiederherstellung war das temporäre Pack zunächst noch gemappt; nach Prozessende wurden normales Root-Pack und frühere Logs hashgeprüft restauriert. Der unvollständige Versuch liegt separat unter `attempt-alt-tab-approval-timeout/`. Die anschließend vom Nutzer bestätigten Production-Läufe sind die Alt-Tab-Evidenz. Die zunächst irrtümlich gemeldete Fensterstörung wurde vom Nutzer ausdrücklich mit „passt alles fehler von mir“ zurückgenommen. Der Fensterlauf wurde manuell mit Exit 0 beendet; Randlos wurde im separaten Prüflauf bestätigt und ebenfalls manuell mit Exit 0 beendet. In beiden manuellen Läufen wurde die abschließende Script-Markierung durch das normale Schließen nicht erreicht; sie werden ausdrücklich als manuelle Abnahme mit separat geprüften Shutdown-Diagnosen gewertet, nicht als vollständig automatisierte Alt-Tab-Ausführung.
+
+### Abschluss und Nachweise
+
+Nachweise im ignorierten Source-Ordner `build-p3-main-production/`: Build-/CTest-Logs, Main-Identität, Userconfig- und Deployment-Receipts, vollständige Packvergleichs-TSVs, `result.json`, `display-result.json`, `alt-tab-ui.json`, `zero-legacy.json`, `protected-before.json`, `final-integrity.json` und pro Lauf Launch-/Exit-/Konfigurations-/Ressourcen-/Lifecycle-Nachweise. Vorherige Logs und beide Benutzerconfigs bytegenau wiederhergestellt; Teststeuerdateien und frische Prüfartefakte archiviert und aus dem aktiven Client entfernt. Kein Clientprozess bleibt laufen.
+
+Vollständig in main enthalten: Source `codex/p3-frame-pacing` und `feature/p2-runtime-performance`; Runtime `codex/p3-frame-pacing`. Keine dieser Branches gelöscht. Source-main clean; Runtime-main nach dem separaten Doku-Commit clean mit der oben ausdrücklich dokumentierten lokalen Userconfig-Ausnahme. Kein Push.
+
+**Client neu starten. STOP nach P3 FINAL PRODUCTION.**
