@@ -430,3 +430,135 @@ Nachweise im ignorierten Source-Ordner `build-p3-main-production/`: Build-/CTest
 Vollständig in main enthalten: Source `codex/p3-frame-pacing` und `feature/p2-runtime-performance`; Runtime `codex/p3-frame-pacing`. Keine dieser Branches gelöscht. Source-main clean; Runtime-main nach dem separaten Doku-Commit clean mit der oben ausdrücklich dokumentierten lokalen Userconfig-Ausnahme. Kein Push.
 
 **Client neu starten. STOP nach P3 FINAL PRODUCTION.**
+
+
+---
+
+## P3 FINAL PRODUCTION — UI Layout Closure und Cleanup-Freigabe (18.09.2026)
+
+**P3 FINAL PRODUCTION: GO.** Die vom Nutzer technisch und manuell freigegebene
+Closure ist separat committed, in beide lokalen main-Branches integriert und
+mit einem frischen Release aus sauberem Source-main im normalen Client geprüft.
+Dieser Eintrag ergänzt die älteren P3-Abnahmen um die endgültige UI-Closure.
+Kein Push, keine Branch-Löschung, keine weitere Produktphase.
+
+### Main-Identität und Commits
+
+| Stand | Commit |
+| --- | --- |
+| SOURCE main / Production-Build | `542722f36d7cf1c40d39b8fa2a14eb647d4718e4` |
+| RUNTIME main / Deployment-Eingaben | `e89424f461efe6596fbace9c649d9b1b229b48eb` |
+| P3 FPS/VSync Source | `186facd6ed31e032d636f351a1ab7dfb774f6851` |
+| P3 Display Source | `1bd011cf42c349af47bd4cdb8aaed19a87ab3a60` |
+| P3 FPS/VSync UI | `f400975cbb9cfbd2613cc53e6eacd5e795422f3a` |
+| P3 Display UI | `653f19d9` |
+| Closure Source | `542722f36d7cf1c40d39b8fa2a14eb647d4718e4` |
+| Closure Runtime/UI | `e89424f461efe6596fbace9c649d9b1b229b48eb` |
+
+`git fetch origin` in beiden Repositories erfolgreich. Vor Integration war
+origin/main vollständig im jeweiligen lokalen main enthalten (Source 20/0,
+Runtime 12/0 voraus/zurück). Beide Closure-Integrationen waren Fast-Forwards;
+keine History geändert. Source-main enthält die vorhandenen P0-L/P1/P2-Commits.
+Die nachfolgenden reinen Dokumentations-/Cleanup-Commits ändern die hier
+angegebenen Build-/Deployment-Eingaben nicht. Finale HEADs stehen im
+Cleanup-Bericht bzw. finalen Git-Receipt.
+
+### Sicherung und Deployment
+
+Frischer Buildordner: `m2dev-client-src/build-p3-final-cleanup/msvc`, erstmals
+für diesen Main-Stand konfiguriert. Release und **10/10 gezielte Tests PASS**;
+keine vollständige historische Testsuite. Vor Deployment zusätzlicher nativer
+Main-Layout-Gate: 29 Snapshots, 42 Elemente, fünf Drift-Zyklen, PASS.
+
+Deployment-Zeit: `2026-09-18T14:18:06.8165358+02:00`.
+
+| Datei | Old SHA256 | New SHA256 |
+| --- | --- | --- |
+| Metin2_Release.exe | `C1145D82B178BE2F627DB82621D93A99C54CAD5F33ED6511BFA4F837CBBAA5D1` | `0E45E5F5817062F9AFFC499360BE63F349824F04C331FCAACA6F898EE6176AD9` |
+| pack/root.pck | `AEA566D4B56A74B1A2D6A33E4C6B24B57546B1D7F5F97BF9A8939D46B96400E3` | `C144F2FBADBBD5A82136208E92F26E10308A51B19982F61BFE60F9396861786A` |
+
+Nur diese beiden Dateien wurden installiert. Vorherige EXE und Pack liegen
+hashgeprüft unter `build-p3-final-cleanup/backup/`. Root-Pack: **342 Einträge,
+9 gezielt geänderte UI-Dateien, 0 hinzugefügt**. Neun vollständige Vergleiche
+mit jeweils genau einer Änderung und abschließender Pack-/Source-Abgleich
+bestanden. Alle übrigen 333 Einträge bytegleich. Kein Test-Startskript im
+abschließenden normalen Netzwerk-Startpaket.
+
+### Benutzerconfigs
+
+Vor jeder Änderung bytegenau außerhalb des Runtime-Worktrees gesichert:
+`m2dev-client-src/build-p3-final-cleanup/backup/config/`. Für die Integration
+wurden ausschließlich die zwei persönlichen Configs auf Repository-Stand
+gesetzt. Beide Worktrees waren danach tatsächlich sauber. Nach Deployment
+und jedem temporären Konfigurationstest sind die ursprünglichen Bytes wieder
+vorhanden; keine persönlichen Werte als Defaults committed.
+
+- `config/graphics.cfg`: `D23624C0F7B09C3ACF216F8D5D32CF481827D304F754A6636BF14FB4EED9A96F`
+- `config/metin2.cfg`: `D90C3CA9EF372BE99E219147AA3D80621E9AE46C83CC316663D78EDB463C9209`
+
+Die bereits vorgefundenen lokalen `skip-worktree`-Flags wurden vor der
+Diff-Prüfung entfernt und nach der sauberen Integration für genau diese zwei
+Templates wiederhergestellt. Finaler Git-Status ist damit clean mit dieser
+ausdrücklich dokumentierten lokalen Ausnahme; die echten Dateien unterscheiden
+sich absichtlich von HEAD. Keine Ignore-Regel für getrackte Configs und keine
+globale Git-Konfiguration hinzugefügt.
+
+### Frische Production-Abnahme
+
+Sämtliche Production-Prozesse starteten die installierte
+`m2dev-client/Metin2_Release.exe` im normalen Runtime-Arbeitsverzeichnis mit
+dem oben genannten Main-Hash. Netzwerkfreie native Prüfabläufe ersetzten
+vorübergehend ausschließlich `prototype.py` im Root-Pack (342 Einträge,
+genau 1 Änderung je Prüfpaket); danach wurden normales Pack, alte Logs und
+Benutzerconfigs hashgeprüft restauriert. Kein Netzwerklogin/Relog behauptet.
+
+| Prüfung | Ergebnis |
+| --- | --- |
+| Resolution / Windowed / Borderless | PASS: dynamische Monitorliste, mehrere reale Fensterauflösungen, 2560×1440 randlos |
+| Resolution Scrolling | PASS: echte native Picking-/Wheel-/Scrollbar-Wege, zunächst unsichtbarer Eintrag ausgewählt, bestätigt und erneut geöffnet |
+| UI Layout | PASS: 29 Snapshots mit 42 Elementen; 1024×768, 1280×720, 1920×1080, 2560×1440; OPEN→RESIZE und CLOSED→RESIZE→OPEN |
+| Inventory / Character / Bags / HUD / Minimap / Hotbar / System / Graphics | PASS: ursprüngliche Öffnungsregeln, Kindergeometrie, Taschenanbindung und manuelle Positionen erhalten |
+| A→B→A Layout-Drift | PASS: fünf vollständige A-B-A-B-A-Zyklen, 0 Pixel Drift |
+| Live Apply / Rollback | PASS: nicht bestätigte Display-Vorschau nach 15.26 s zurückgesetzt, erneute Auswahl bestätigt |
+| Startup Fallback | PASS: ungültige Auflösung, Exclusive, ungültiger Mode und fehlerhafte Zahlen; sicherer gültiger Fenstermodus |
+| Persistenz | PASS: separate FPS-/VSync- und Display-Neustarts |
+| FPS/VSync | PASS: alle sechs Kombinationen live |
+| Gameplay Timing | PASS: Simulation, Bewegung, Kamera, Animation, Kampf und Effekte bei allen Limits unverändert im gezielten Vergleich |
+| A1→B1→A1 | PASS: zwei vollständige Rundreisen, einmal durchgängig 120/Aus, einmal Unbegrenzt/Aus |
+| Alt-Tab Fenster / Randlos | PASS: frische Prüfung im installierten Main-Client, dokumentiert in `alt-tab-ui.json` |
+| P0/P2 Regression | PASS: Shadercache-Hits, 0 Runtime-Compiles; Prewarm aktiv, keine First-Use-Key-/Clip-/GR2-Misses; Dust-/Pack-Reads 0 im Wiederholungsabschnitt, kein Diagnose-Burst, stabile World-Zähler |
+| Zero Legacy | PASS: Import-/SDK-Audit ohne D3D9/D3DX, Granny/granny2.dll oder SpeedTree; ZiiNAN-Pfade aktiv |
+| Fast Gate | PASS: Diligent ERROR/FATAL=0, GPU fallback=0, CPU deformation=0, überwachte Shutdown-Ressourcen=0, leere Python-Fehlerlogs, alle gewerteten Exits 0 |
+
+Beobachtete kurze FPS-Kadenz (keine neue allgemeine Benchmarkserie):
+
+| FPS / VSync | Beobachtete FPS | Ergebnis |
+| --- | --- | --- |
+| 60 / Aus | 60.01–60.01 | PASS |
+| 60 / Ein | 60.00–60.01 | PASS |
+| 120 / Aus | 120.00–120.03 | PASS |
+| 120 / Ein | 119.99–120.02 | PASS |
+| Unbegrenzt / Aus | 562.39–663.90 | PASS |
+| Unbegrenzt / Ein | 164.84–164.85 | PASS |
+
+550 geschützte Runtime-Dateien vor/nach Deployment verglichen:
+genau EXE/Root-Pack bewusst ersetzt, 548 unverändert. Die
+gesonderte Cleanup-Inventarisierung und ihr umfassender Schutzvergleich
+werden im [Cleanup-Bericht](maintenance/repository-cleanup-p3.md) dokumentiert.
+
+Nachweise: `build-p3-final-cleanup/` mit Build-/CTest-Logs, Main-Identität,
+Packvergleichs-TSVs, Backup-/Deployment-Receipts, `result.json`,
+`display-result.json`, `production-layout/fast-gate.json`, `zero-legacy.json`,
+`alt-tab-ui.json`, `production-integrity.json` und Launch-/Exit-Belegen.
+Die bisherige Nutzer-Sichtfreigabe der Closure bleibt eine eigene Evidenzklasse.
+
+**Client neu starten.** Cleanup erst nach dieser erfolgreichen Production-Abnahme.
+
+Alt-Tab-Evidenz für diesen Abschluss: Fenster-PID **42860**, Randlos-PID
+**39920**. Nutzerbestätigungen wörtlich: „Fenster: PASS“ und „Randlos: PASS“.
+Beide Prozesse wurden manuell mit Exit 0 geschlossen; die abschließenden
+Script-Markierungen wurden dabei nicht erreicht. Die Runner meldeten deshalb
+„Incomplete display run“, was ausschließlich den fehlenden automatisierten
+Abschluss bezeichnet. Die manuelle Sichtabnahme, tatsächlich protokollierter
+Anzeigemodus und separat geprüfte vollständige Shutdown-Gates sind bestanden.
+Diese Läufe werden nicht als vollständig automatisierte Alt-Tab-Tests gewertet.
